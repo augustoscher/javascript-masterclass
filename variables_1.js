@@ -14,8 +14,9 @@ console.log(pi);
 if (true) {
     var teste = "aahaha"
 }
-console.log(teste);
+console.log(teste); //funciona
 //---------------------------------------------------------------
+
 //2- LET - respeita bloco, não permite redeclaração e permite reatribuição
 //Ao utilizar let, a variável é declarada no escopo da função mas só é
 //inicializada posteriormente, respeitando bloco e permitindo reatribuição, mas não
@@ -30,11 +31,29 @@ if (true) {
 }
 //console.log(b)//ReferenceError: a is not defined
 //---------------------------------------------------------------
+
 //3- CONST (final) - respeita bloco, não permite redeclaração nem reatribuição
 //Ao utilizar let, a variável é declarada no escopo da função mas só é
 //inicializada posteriormente, respeitando bloco não permitindo 
 //reatribuição nem redeclaração.
 
+//Ao declarar uma variável sem var, let, ou const ela é criada no escopo global.
+//O que é pior ainda.
+//Quando usa o var ele fica restrito ao execution context da função. Se declarar
+//sem indicar var, let ou const ele fica no escopo global.
+(function(){
+  var oi = 'oi';
+  test = 'test'; //nunca usar sem var let ou const
+})();
+console.log(test); //funciona poi fica no escopo global
+//console.log(oi);//ReferenceError: oi is not defined
 
+//---------------------------------------------------------------
+//4- identificadores devem começar com:
+// [a-zA-Z_$]
+let a_$ = 'adsasd';
+let name = "name";
+let Name = "name";
+let n98 = "n98";
+console.log(a_$);
 
-//Ao declarar uma variável sem var, let, ou const ela é criada no escopo global
