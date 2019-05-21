@@ -36,3 +36,4 @@ console.log();
 console.log('parseFloat');
 console.log(parseFloat("10")); 
 console.log(parseFloat("9.9")); //funciona pois é float
+
