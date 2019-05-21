@@ -1,4 +1,5 @@
 console.log('Strings');
+//string é primitivo, imutavel e é representado por unicode codificado em utf-16
 //how to declare:
 let s = "javascript";// ""
 let s2 = 'javascript'; //''
