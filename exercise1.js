@@ -18,7 +18,7 @@ function execExp(exp, value) {
     return exp.exec(value);    
 }
 
-let command = "create table author (id number, name string, age number, city string, state string, country string)"
+let command = "create table author (id number, name string, age number, city string, state string, country string)";
 let regexCreateTable = /^create\stable\s(\w+)\s\(([a-z,\s]+)\)$/;
 let result = regexCreateTable.exec(command);
 let tableName = result[1];
@@ -30,3 +30,18 @@ result = execExp(regexCreateTable, command);
 tableName = result[1];
 columns = result[2].split(",");
 print(tableName, columns);
+console.log();
+
+console.log("============================================================================");
+console.log();
+let statement = "create table author (id number, name string, age number, city string, state string, country string)";
+let regExp = /create table ([a-z]+) \((.+)\)/;
+const parsedStatement = statement.match(regExp);
+const table = parsedStatement[1];
+let extractedCols = parsedStatement[2];
+let cols = extractedCols.split(", ");
+
+console.log(table);
+console.log(cols);
+// console.log(parsedStatement);
+
