@@ -7,3 +7,4 @@
 
 console.log('Python'.indexOf('p'));
 console.log("10" + 0);
+console.log('10' == 10);

@@ -37,3 +37,11 @@ console.log(!!{});
 console.log(!![]);
 console.log(!!/JavaScript/);
 console.log(!!function(){});
+
+console.log();
+console.log('10' === 10 ? ('a' > 'b' ? 1: 2) : (null === undefined ? 3: 4));
+console.log(!!NaN);
+console.log(!!null);
+console.log(!!-10);
+console.log(!!true);
+console.log(0 == '');
