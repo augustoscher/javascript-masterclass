@@ -1,3 +1,8 @@
+
+const DatabaseError = function (statement, message) {
+  this.message = message + ": " + statement;
+}
+
 const database = {
   tables: {},
   createTable(statement) {
@@ -20,13 +25,22 @@ const database = {
     }
   },
   execute(statement) {
-    if (statement.startsWith("create table")) {
-      this.createTable(statement);
+    if (!statement.startsWith("create table")) {
+      throw new DatabaseError(statement, "Syntax error")
     }
+    this.createTable(statement);
   }
 };
 
+try {
+  database.execute("create table author (id number, name string, age number, city string, state string, country string)");
+  console.log(JSON.stringify(database, undefined, "  "));
+} catch (e) {
+  console.log(e.message);
+}
 
-let abc = database.execute("create table author (id number, name string, age number, city string, state string, country string)");
-
-console.log(JSON.stringify(database, undefined, "  "));
+try {
+  database.execute("select id, name from author");
+} catch (e2) {
+  console.log(e2.message);
+}
