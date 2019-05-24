@@ -2,7 +2,6 @@ const thisClass = "Array Mutator API";
 console.log(`Class of ${thisClass}`);
 //mutator methods, quando invocadas, modificam o array.
 
-
 console.log(`=== push === `);
 const languages = ["Python", "C", "JavaScript"];
 //push adiciona elemento e retorna o novo lenght do array
