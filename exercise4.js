@@ -1,6 +1,6 @@
 
 const DatabaseError = function (statement, message) {
-  this.message = message + ": " + statement;
+  this.message = `${message}: ${statement}`;
 }
 
 const database = {
