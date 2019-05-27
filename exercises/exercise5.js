@@ -6,37 +6,35 @@ const DatabaseError = function (statement, message) {
 const database = {
   tables: {},
   createTable(statement) {
-    let regExp = /create table ([a-z]+) \((.+)\)/;
+    const regExp = /create table ([a-z]+) \((.+)\)/;
     const parsedStatement = statement.match(regExp);
-    const tableName = parsedStatement[1];
+    let [, tableName, columns] = parsedStatement;
 
     this.tables[tableName] = {
       columns: {},
       data: []
     }
-    let extractedCols = parsedStatement[2];
-    let cols = extractedCols.split(", ");
 
-    for (let c of cols) {
+    columns = columns.split(", ");
+    for (let c of columns) {
       column = c.split(" ");
-      const name = column[0];
-      const type = column[1];
+      const [name, type] = column;
       this.tables[tableName].columns[name] = type;
     }
   },
   insert(statement) {
-    let regExp = /insert into ([a-z]+) \((.+)\) ([a-z]+) \((.+)\)/;
-    let parsed = statement.match(regExp);
+    const regExp = /insert into ([a-z]+) \((.+)\) ([a-z]+) \((.+)\)/;
+    const parsedStatement = statement.match(regExp);
 
-    const tableName = parsed[1];
-    const atributes = parsed[2].split(", ");
-    const values = parsed[4].split(", ");
+    let [, tableName, columns, , values] = parsedStatement;
+    columns = columns.split(", ");
+    values = values.split(", ");
 
-    const obj = {};
-    for (let i = 0; i < atributes.length; i++) {
-      obj[atributes[i]] = values[i];
+    const row = {};
+    for (let i = 0; i < columns.length; i++) {
+      row[columns[i]] = values[i];
     };
-    this.tables[tableName].data.push(obj);
+    this.tables[tableName].data.push(row);
   },
   execute(statement) {
     if (statement.startsWith("create table")) {
