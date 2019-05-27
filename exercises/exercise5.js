@@ -34,9 +34,7 @@ const database = {
 
     const obj = {};
     for (let i = 0; i < atributes.length; i++) {
-      const atribute = atributes[i];
-      const value = values[i];
-      obj.atribute = value;
+      obj[atributes[i]] = values[i];
     };
     this.tables[tableName].data.push(obj);
   },
