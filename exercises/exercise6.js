@@ -38,25 +38,31 @@ const database = {
     this.tables[tableName].data.push(row);
   },
   select(statement) {
-    const regExp = /select (.+) from ([a-z]+) where (.+)/;
+    //grupo de captura opcional
+    const regExp = /select (.+) from ([a-z]+)(?: where (.+))?/;
     const parsedStatement = statement.match(regExp);
 
-    let [, values, tableName, condition] = parsedStatement;
-    values = values.split(", ");
-    condition = condition.split(" = ");
-    let [columnWhere, valueWhere] = condition;
+    let [, columns, tableName, whereClause] = parsedStatement;
+    columns = columns.split(", ");
 
-    result = this.tables[tableName].data.filter(item => {
-      return (item[columnWhere] === valueWhere);
-    });
-    result = result.map((item) => {
+    let rows = this.tables[tableName].data;
+    if (whereClause) {
+      whereClause = whereClause.split(" = ");
+      const [columnWhere, valueWhere] = whereClause;
+
+      rows = rows.filter(row => {
+        return (row[columnWhere] === valueWhere);
+      });
+    }
+
+    rows = rows.map((item) => {
       let obj = {};
-      values.forEach(value => {
-        obj[value] = item[value];
+      columns.forEach(column => {
+        obj[column] = item[column];
       });
       return obj;
     });
-    console.log(result);
+    console.log(rows);
   },
   execute(statement) {
     if (statement.startsWith("create table")) {
@@ -77,7 +83,9 @@ try {
   database.execute("insert into author (id, name, age) values (2, Linus Torvalds, 47)");
   database.execute("insert into author (id, name, age) values (3, Martin Fowler, 54)");
   console.log(JSON.stringify(database, undefined, "  "));
-  database.execute("select name, age from author where id = 2");
+  database.execute("select name, age, id from author where id = 1");
+  console.log();
+  database.execute("select name, age from author");
 } catch (e) {
   console.log(e.message);
 }
