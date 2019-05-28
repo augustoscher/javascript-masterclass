@@ -73,24 +73,12 @@ const database = {
       whereClause = whereClause.split(" = ");
       const [columnWhere, valueWhere] = whereClause;
 
-      let deleteRows = this.tables[tableName].data;
-      deleteRows = deleteRows.filter(row => {
-        return (row[columnWhere] === valueWhere);
+      this.tables[tableName].data = this.tables[tableName].data.filter(row => {
+        return row[columnWhere] !== valueWhere;
       });
 
-      let allRows = this.tables[tableName].data;
-      let idx = -1;
-      for (i = 0; i < allRows.length; i++) {
-        if (allRows[i][columnWhere] === valueWhere) {
-          idx = i;
-          break;
-        }
-      }
-      if (idx > -1) {
-        this.tables[tableName].data.splice(idx, 1)
-      }
     } else {
-      this.tables[tableName].data.splice(0, this.tables[tableName].data.length);
+      this.tables[tableName].data = [];
     }
   },
   execute(statement) {
@@ -131,6 +119,12 @@ try {
   database.execute("select name, age from author");
 
   console.log();
+  console.log("delete from author");
+  database.execute("delete from author");
+
+  console.log();
+  console.log("select name, age from author");
+  database.execute("select name, age from author");
 } catch (e) {
   console.log(e.message);
 }
