@@ -90,8 +90,15 @@ console.log(obj[true]);
 console.log(obj["true"]);
 console.log(obj);
 
+const obj2 = {};
+//retorna true por que propriedade existe no prototype
+console.log("toString" in obj2);
+console.log("valueOf" in obj2);
+
+
 console.log();
 console.log("= map = ")
+//as chaves do map respeitam o tipo determinado.
 const map = new Map();
 map.set(10, "Number");
 map.set("10", "String");
@@ -102,3 +109,8 @@ map.forEach((value, key) => {
   console.log(typeof key);
   console.log(key, value);
 })
+
+const map2 = new Map();
+//não existe herança em map.
+console.log(map2.get("toString"));
+console.log(map2.get("valueOf"));
