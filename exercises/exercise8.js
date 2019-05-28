@@ -3,18 +3,14 @@ const DatabaseError = function (statement, message) {
 }
 
 const Parser = function () {
-  this.commands = new Map([
-    ["create", /create table ([a-z]+) \((.+)\)/],
-    ["select", /select (.+) from ([a-z]+)(?: where (.+))?/],
-    ["delete", /delete from ([a-z]+)(?: where (.+))?/],
-    ["insert", /insert into ([a-z]+) \((.+)\) ([a-z]+) \((.+)\)/]]);
-};
+  const commands = new Map();
+  commands.set("createTable", /create table ([a-z]+) \((.+)\)/);
+  commands.set("select", /select (.+) from ([a-z]+)(?: where (.+))?/);
+  commands.set("delete", /delete from ([a-z]+)(?: where (.+))?/);
+  commands.set("insert", /insert into ([a-z]+) \((.+)\) ([a-z]+) \((.+)\)/);
 
-const database = {
-  tables: {},
-  parse(statement) {
-    const parser = new Parser();
-    for (let [command, regExp] of parser.commands) {
+  this.parse = function (statement) {
+    for (let [command, regExp] of commands) {
       let parsedStatement = statement.match(regExp);
       if (parsedStatement) {
         return {
@@ -23,7 +19,12 @@ const database = {
         };
       }
     }
-  },
+  };
+};
+
+const database = {
+  tables: {},
+  parser: new Parser(),
   createTable(parsedStatement) {
     let [, tableName, columns] = parsedStatement;
 
@@ -89,23 +90,12 @@ const database = {
     }
   },
   execute(statement) {
-    const { command, parsedStatement } = this.parse(statement);
-    switch (command) {
-      case 'create':
-        this.createTable(parsedStatement);
-        break;
-      case 'insert':
-        this.insert(parsedStatement);
-        break;
-      case 'select':
-        this.select(parsedStatement);
-        break;
-      case 'delete':
-        this.delete(parsedStatement);
-        break;
-      default:
-        throw new DatabaseError(statement, "Syntax error")
-    };
+    const result = this.parser.parse(statement);
+    if (result) {
+      this[result.command](result.parsedStatement);
+    } else {
+      throw new DatabaseError(statement, "Syntax error");
+    }
   }
 };
 
