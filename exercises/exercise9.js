@@ -4,12 +4,13 @@ class DatabaseError {
     this.statement = statement;
     this.message = message;
     this.generateMessage();
-  };
+  }
 
   generateMessage() {
     this.message = `${this.message}: ${this.statement}`;
-  };
-};
+  }
+
+}
 
 class Parser {
 
@@ -19,7 +20,7 @@ class Parser {
     this.commands.set("select", /select (.+) from ([a-z]+)(?: where (.+))?/);
     this.commands.set("delete", /delete from ([a-z]+)(?: where (.+))?/);
     this.commands.set("insert", /insert into ([a-z]+) \((.+)\) ([a-z]+) \((.+)\)/);
-  };
+  }
 
   parse(statement) {
     for (let [command, regExp] of this.commands) {
@@ -28,19 +29,19 @@ class Parser {
         return {
           command,
           parsedStatement
-        };
+        }
       }
     }
-  };
+  }
 
-};
+}
 
 class Database {
 
   constructor() {
     this.tables = {};
     this.parser = new Parser();
-  };
+  }
 
   createTable(parsedStatement) {
     let [, tableName, columns] = parsedStatement;
@@ -56,7 +57,7 @@ class Database {
       const [name, type] = column;
       this.tables[tableName].columns[name] = type;
     }
-  };
+  }
 
   insert(parsedStatement) {
     let [, tableName, columns, , values] = parsedStatement;
@@ -68,7 +69,7 @@ class Database {
       row[columns[i]] = values[i];
     };
     this.tables[tableName].data.push(row);
-  };
+  }
 
   select(parsedStatement) {
     let [, columns, tableName, whereClause] = parsedStatement;
@@ -92,7 +93,7 @@ class Database {
       return obj;
     });
     console.log(rows);
-  };
+  }
 
   delete(parsedStatement) {
     let [, tableName, whereClause] = parsedStatement;
@@ -108,7 +109,7 @@ class Database {
     } else {
       this.tables[tableName].data = [];
     }
-  };
+  }
 
   execute(statement) {
     const result = this.parser.parse(statement);
@@ -117,8 +118,9 @@ class Database {
     } else {
       throw new DatabaseError(statement, "Syntax error");
     }
-  };
-};
+  }
+
+}
 
 try {
   const database = new Database();
