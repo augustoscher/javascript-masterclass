@@ -59,7 +59,7 @@ export default class Database {
       });
       return obj;
     });
-    console.log(rows);
+    return rows;
   }
 
   delete(parsedStatement) {
@@ -79,11 +79,15 @@ export default class Database {
   }
 
   execute(statement) {
-    const result = this.parser.parse(statement);
-    if (result) {
-      this[result.command](result.parsedStatement);
-    } else {
-      throw new DatabaseError(statement, "Syntax error");
-    }
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const result = this.parser.parse(statement);
+        if (result) {
+          resolve(this[result.command](result.parsedStatement));
+        }
+        reject(new DatabaseError(statement, "Syntax error"));
+      }, 1000);
+    });
   }
+
 }
