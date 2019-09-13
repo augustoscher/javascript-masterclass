@@ -42,7 +42,11 @@ console.log(test);
 test = isNaN(parseFloat("javascript"));
 console.log(test)
 
-
+let f = 0.010;
+let f2 = 0.010;
+console.log();
+console.log(f * f2);
+console.log(0.010 * 0.010)
 
 
 
