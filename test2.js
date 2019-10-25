@@ -16,9 +16,15 @@ const cars = [
 ];
 
 console.log(cars);
+console.log(cars.length)
+
 console.log();
-const res = cars.filter(car => car.year > 2016);
+let res = cars.filter(car => car.year > 2016);
 console.log(res);
 console.log();
-let defaultCar = cars.find(car => car.default )
-console.log(defaultCar)
+res = cars.find(car => car.default )
+console.log(res)
+console.log()
+
+res = cars.find(c => c.name === "Peugeot 308")
+console.log(res)
