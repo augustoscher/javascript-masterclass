@@ -9,7 +9,6 @@
 // console.log("10" + 0);
 // console.log('10' == 10);
 
-
 //'07:05:45PM'
 //'19:05:45'
 // const time = '07:05:45PM'
@@ -146,46 +145,116 @@ let kP = 5;
 
 
 
-// function sockMerchant(arr) {
-//     let mp = new Map();
-//     arr.forEach(item => {
-//         if (mp.has(item)) {
-//             mp.set(item, mp.get(item)+1);
-//         } else {
-//             mp.set(item, 1);
-//         }
-//     });
-//     let mapAsc = new Map([...mp.entries()].sort());
-//     let pairSum = 0;
-//     mapAsc.forEach((k,v) => {
-//         if (k > 1) {
-//             if (k % 2 == 0) {
-//                 pairSum = pairSum + (k/2);
-//             } else {
-//                 pairSum = pairSum + ((k-1)/2);
-//             }
-//         }
-//     });
-//     return pairSum;
-// }
-// console.log(sockMerchant([10, 20, 20, 10, 10, 30, 50, 10, 20]))
+function sockMerchant(arr) {
+    let mp = new Map();
+    arr.forEach(item => {
+        if (mp.has(item)) {
+            mp.set(item, mp.get(item)+1);
+        } else {
+            mp.set(item, 1);
+        }
+    });
+    let mapAsc = new Map([...mp.entries()].sort());
+    let pairSum = 0;
+    mapAsc.forEach((k,v) => {
+        if (k > 1) {
+            if (k % 2 == 0) {
+                pairSum = pairSum + (k/2);
+            } else {
+                pairSum = pairSum + ((k-1)/2);
+            }
+        }
+    });
+    return pairSum;
+}
+console.log(sockMerchant([10, 20, 20, 10, 10, 30, 50, 10, 20]))
 
 
-// function vowelsAndConsonants(s) {
-//     const vowels = ['a', 'e', 'i', 'o', 'u'];
-//     const isVowel = v => {
-//         return vowels.includes(v);
-//     }
-//     for(let i=0; i< s.length; i++) {
-//         if (isVowel(s[i])) {
-//             console.log(s[i]);
-//         }
-//     }
-//     for(let i=0; i< s.length; i++) {
-//         if (!isVowel(s[i])) {
-//             console.log(s[i]);
-//         }
-//     }
-// }
+function vowelsAndConsonants(s) {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const isVowel = v => {
+        return vowels.includes(v);
+    }
+    for(let i=0; i< s.length; i++) {
+        if (isVowel(s[i])) {
+            console.log(s[i]);
+        }
+    }
+    for(let i=0; i< s.length; i++) {
+        if (!isVowel(s[i])) {
+            console.log(s[i]);
+        }
+    }
+}
 
-// vowelsAndConsonants("javascriptloops");
+vowelsAndConsonants("javascriptloops");
+
+const opts = [
+  {
+    label: 'Dados do Lead',
+    options: [
+      {
+        label: 'Campo',
+        value: 'field'
+      }
+    ]
+  },
+  {
+    label: 'Conversão',
+    options: [
+      {
+        label: 'O Lead converteu',
+        value: 'converted'
+      },
+      {
+        label: 'O Lead não converteu',
+        value: 'not_converted'
+      }
+    ]
+  },
+  {
+    label: 'Funil',
+    options: [
+      {
+        label: 'Oportunidade',
+        value: 'state_opportunity'
+      }
+    ]
+  }
+];
+
+
+const onCategoryChange = (value, options) => {
+  let filteredOption;
+  options.forEach(group => group.options.forEach(option => {
+    if (option.value === value) {
+      filteredOption = option;
+    }
+  }));
+  return filteredOption;
+};
+
+const getOptionByValue = (value, options) => {
+  let filteredOption;
+  for (let i = 0; i < options.length; i++) {
+    let filterResult = options[i].options.filter(opt => {
+      return opt.value === value;
+    });
+    if (filterResult && filterResult.length > 0) {
+      filteredOption = filterResult[0];
+      break;
+    }
+  }
+  return filteredOption;
+}
+
+let r;
+console.time("onCategoryChange")
+r = onCategoryChange('state_opportunity', opts);
+// console.log(r);
+console.timeEnd("onCategoryChange")
+
+console.time("getOptionByValue")
+r = getOptionByValue('state_opportunity', opts);
+// console.log(r);
+console.timeEnd("getOptionByValue")
