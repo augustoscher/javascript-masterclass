@@ -31,3 +31,4 @@ console.log(typeof re);
 
 let dt = new Date();
 console.log(typeof dt);
+console.log(dt)
