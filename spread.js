@@ -1,14 +1,31 @@
+const target_options = [
+  {
+    label: 'no evento',
+    value: 'on_event',
+    expression_type: [
+      'EVENT'
+    ]
+  },
+  {
+    label: 'a partir da origem',
+    value: 'from_traffic_source',
+    expression_type: [
+      'SOURCE'
+    ]
+  }
+];
+
 let condition = {
-  description: 'as',
-  category: 'as',
-  target: 'as',
-  target_options: [{ name: 'as'}],
-  expression_type: [],
-  period_operator: 'as',
-  operator: 'as',
+  description: 'conversion',
+  category: 'not_converted',
+  target: 'on_event',
+  target_options,
+  expression_type: ['EVENT'],
+  period_operator: '',
+  operator: '',
   values: [],
   values_labels: [],
-  frequency_operator: 'as',
+  frequency_operator: '',
   frequency_values: [],
   period_values: [],
   expanded: false
