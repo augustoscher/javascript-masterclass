@@ -30,7 +30,6 @@ res = cars.find(c => c.name === "Peugeot 308")
 console.log(res)
 
 function solution(S, K) {
-  // write your code in JavaScript (Node.js 8.9.4)
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   const quotient = Math.ceil(K / days.length);
 
