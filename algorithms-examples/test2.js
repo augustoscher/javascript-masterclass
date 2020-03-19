@@ -28,18 +28,3 @@ console.log()
 
 res = cars.find(c => c.name === "Peugeot 308")
 console.log(res)
-
-function solution(S, K) {
-  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  const quotient = Math.ceil(K / days.length);
-
-  let result = []
-  for (let i = 0; i < quotient ; i++) {
-     result = result.concat(days)
-  }
-
-  const idx = days.findIndex(item => item === S) + K;
-  return result[idx];
-}
-
-console.log(solution('Wed', 500));
