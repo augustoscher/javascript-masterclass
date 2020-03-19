@@ -8,5 +8,4 @@ const getSecondLargest = nums => {
   return sorted[1];
 };
 
-
 console.log(getSecondLargest([2,3,6,6,5]))
