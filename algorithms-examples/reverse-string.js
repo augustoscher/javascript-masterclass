@@ -1,14 +1,13 @@
 //Reverse string
 //Transform in number
 const reverseString = (s) => {
-  let result = s;  
   try {
     const reversedArray = s.split("").reverse();
-    result = reversedArray.join("");
+    s = reversedArray.join("");
   } catch(e) {
     console.log(e.message)
   }
-  console.log(result);
+  console.log(s);
 }
 
 reverseString("1234");
