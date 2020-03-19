@@ -20,3 +20,5 @@ class Square extends Rectangle {
  const sqr = new Square(3);
  console.log(rec.area());
  console.log(sqr.area());
+
+
