@@ -1,4 +1,4 @@
-const birthday = require('../hacking/birthday-chocolate');
+const birthday = require('../hacking/hacker-rank/birthday-chocolate');
 const assert = require('assert');
 
 describe('birthday-chocolate', function() {

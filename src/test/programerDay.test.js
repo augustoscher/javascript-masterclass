@@ -1,4 +1,4 @@
-const dayOfProgrammer = require('../hacking/programerDay');
+const dayOfProgrammer = require('../hacking/hacker-rank/programerDay');
 const assert = require('assert');
 
 describe('programerDay', function() {
