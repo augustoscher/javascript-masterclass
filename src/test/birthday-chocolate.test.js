@@ -3,7 +3,7 @@ const assert = require('assert');
 
 describe('birthday-chocolate', function() {
   it('Should return 1 item', () => {
-    const result = birthday(4, 4, 1); //1
+    const result = birthday([4], 4, 1); //1
     assert.deepEqual(1, result);
   });
 
