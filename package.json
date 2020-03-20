@@ -4,7 +4,7 @@
   "description": "##### Some helpfull tips and examples of javascript masterclass",
   "main": "classes.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/test/*.test.js"
   },
   "repository": {
     "type": "git",
