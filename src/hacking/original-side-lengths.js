@@ -10,12 +10,12 @@
 function sides(literals, ...expressions) {
   const [area, perimeter] = expressions;
 
-  s1 = perimeter + (Math.sqrt(Math.pow(perimeter, 2) - (16 * area)))
+  let s1 = perimeter + (Math.sqrt(Math.pow(perimeter, 2) - (16 * area)))
   s1 = s1 / 4;
 
-  s2 = perimeter - (Math.sqrt(Math.pow(perimeter, 2) - (16 * area)))
+  let s2 = perimeter - (Math.sqrt(Math.pow(perimeter, 2) - (16 * area)))
   s2 = s2 / 4;
-  
+
   return [s1, s2].sort()
 }
 
