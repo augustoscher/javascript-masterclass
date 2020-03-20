@@ -1,0 +1,23 @@
+{
+  "name": "javascript-masterclass",
+  "version": "1.0.0",
+  "description": "##### Some helpfull tips and examples of javascript masterclass",
+  "main": "classes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/augustoscher/javascript-masterclass.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/augustoscher/javascript-masterclass/issues"
+  },
+  "homepage": "https://github.com/augustoscher/javascript-masterclass#readme",
+  "dependencies": {
+    "mocha": "^7.1.1"
+  }
+}
