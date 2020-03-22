@@ -9,9 +9,11 @@ const equalsIgnroingSize = (s1, s2) => {
 
 function appendAndDelete(s, t, k) {
   var end = 0;
-
+  //itera as string comparando os chars para ver se são iguais, caso positivo,
+  //incrementa o indice para marcar a posição onde começam as diferenças
   for (var i = 0; i < Math.min(t.length, s.length); i++) {
     if (s[i] == t[i]) {
+      console.log(`${s[i]} = ${t[i]}`)
       end++;
     } else {
       break;
@@ -34,5 +36,10 @@ function appendAndDelete(s, t, k) {
 // console.log(appendAndDelete("ashley", "ash", 2))
 // console.log(appendAndDelete("aaa", "a", 5))
 console.log(appendAndDelete("abcd", "abcdert", 10));
+// console.log(appendAndDelete(
+//   "uoiauwrebgiwrhgiuawheirhwebvjforidkslweufgrhvjqasw",
+//   "vgftrheydkoslwezxcvdsqjkfhrydjwvogfheksockelsnbkeq",
+//   100
+// ));
 
 module.exports = appendAndDelete;
