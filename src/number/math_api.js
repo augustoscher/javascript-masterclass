@@ -1,3 +1,5 @@
+const { logBase } = require('./log');
+
 console.log('math api');
 console.log("typeof Math = " + typeof Math); //Math é um objeto
 console.log("Math.E = " + Math.E); //euler number
@@ -56,4 +58,11 @@ console.log(Math.random() * 1000);
 //so a parte numerica
 console.log(Math.trunc(Math.random() * 1000)); 
 
+console.log()
 
+console.log("log(100,2)", logBase(100, 2))
+console.log("log(100,2.5)", logBase(100, 2.5))
+console.log("log(100,3)", logBase(100, 3))
+console.log("log(1000,2)", logBase(1000, 2))
+console.log("log(1000,2.5)", logBase(1000, 2.5))
+console.log("log(1000,3)", logBase(1000, 3))
