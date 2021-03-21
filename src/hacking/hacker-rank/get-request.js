@@ -28,7 +28,6 @@ async function getUsernames(threshold) {
     users = users.concat(getUserNamesGreatherThanTreshold(body.data, threshold))
   }
 
-  console.log(users)
   return users
 }
 
