@@ -17,6 +17,7 @@ const result = sumHarder(nums);
 console.log('Sum: ', result)
 
 // O(1)	constant	fast
+// Formula: n ( n + 1 ) / 2
 const sumSmarter = arr => arr.length * (arr.length + 1) / 2;
-console.log('Sum: ', sumHarder(nums))
+console.log('Sum: ', sumSmarter(nums))
 
