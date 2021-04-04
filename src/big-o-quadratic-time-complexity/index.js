@@ -16,6 +16,7 @@ const result = sumHarder(nums);
 console.log('Sum: ', result);
 
 // O(1)	constant	fast
+// Regardless of the size of the input, our algorithm will perform the same, or, a constant number of operations.
 // Formula: n ( n + 1 ) / 2
 const sumSmarter = arr => arr.length * (arr.length + 1) / 2;
 console.log('Sum: ', sumSmarter(nums));
