@@ -9,6 +9,7 @@ const iceCreamParlor = (m, arr) => {
 
   const res = []
   for (let i = 0; i < values.length; i++) {
+    // Is not quadratic Big O complexity because we initialize second loop with i+1
     for (let j = i+1; j < values.length; j++) {
       if (values[i].value + values[j].value == m) {
         res.push(values[i].index + 1)
