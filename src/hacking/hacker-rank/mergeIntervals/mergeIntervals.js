@@ -1,4 +1,5 @@
-
+// Hacker Rank
+// Avenue Code challenge
 /*
  * Complete the 'getMergedIntervals' function below.
  *
