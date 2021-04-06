@@ -1,5 +1,6 @@
 // Hacker Rabk
 // Sparse Arrays
+// Return the size of mathing string from each query
 const getMatchedStringsSize = (query, strings) => {
   const res = strings.filter(str => str === query)
   return res.length
