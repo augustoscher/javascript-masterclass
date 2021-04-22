@@ -1,4 +1,4 @@
-// HashTable Examples
+// HashTable/HashMap Examples
 // https://javascript.plainenglish.io/algorithm-in-javascript-hash-table-7b0464d2b81b
 // Problem - Check Permutation: Given two strings, write a method to decide if one is a permutation of the other.
 // It is assumed that the characters are stored using 8 bit and there can be 256 possible characters.
