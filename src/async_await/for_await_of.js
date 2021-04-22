@@ -4,6 +4,7 @@ function sum(a, b) {
       reject("Invalid input...");
     }
     setTimeout(() => {
+      console.log(`Sum ${a} + ${b}`)
       resolve(a + b);
     }, 1000);
   });
