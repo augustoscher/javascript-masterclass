@@ -8,10 +8,14 @@ let b = Symbol("b");
 let c = Symbol("c");
 let d = Symbol("a");
 
+console.log("Comparing two instances with same value:")
 console.log(Symbol("a") == Symbol("a"));
 console.log(Symbol("a") === Symbol("a"));
-console.log(a == d);
-console.log(a === d);
+
+console.log();
+console.log("a == d: ", a == d);
+console.log("a === d: ", a === d);
+console.log("a === a: ", a === a)
 
 console.log();
 // Symbol.hasInstance
@@ -28,4 +32,24 @@ console.log();
 
 let regexp = /JavaScript/;
 regexp[Symbol.match] = false;
-console.log("/JavaScript/".startsWith(regexp));
+console.log("Symbol.match: ", "/JavaScript/".startsWith(regexp));
+
+console.log()
+console.log("constants")
+
+const constants = {
+  topics: Symbol("TOPICOS"),
+  diarios: Symbol("DIARIOS"),
+  jurisprudencia: Symbol("JURISPRUDENCIA"),
+}
+
+const isDiarioArtifact = value => constants.diarios === value
+
+// console.log(constants.diarios === "DIARIOS")
+console.log(isDiarioArtifact("DIARIOS")) //false
+
+// console.log(constants.diarios === Symbol("DIARIOS"))
+console.log(isDiarioArtifact(Symbol("DIARIOS"))) //false
+
+// console.log(constants.diarios === constants.diarios)
+console.log(isDiarioArtifact(constants.diarios)) //true
