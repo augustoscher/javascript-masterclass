@@ -14,6 +14,8 @@
 //nav - sp
 
 const findDepartureArrival = tickets => {
+  console.time('ObjectSolution')
+
   const hashMap = {}
 
   for (let tkt in tickets) {
@@ -32,6 +34,33 @@ const findDepartureArrival = tickets => {
   }
 
   console.log(hashMap)
+  console.timeEnd('ObjectSolution')
+}
+
+const findArrivalWithMap = tickets => {
+  console.time('MapSolution')
+
+  const m = new Map()
+
+  for (let tkt in tickets) {
+    const depart = tickets[tkt].departure;
+    const arrival = tickets[tkt].arrival;
+
+    let mapValue = m.get(depart)
+    if (mapValue)
+      m.set(depart, mapValue -1)
+    else
+      m.set(depart, -1)
+
+    mapValue = m.get(arrival)
+    if (mapValue)
+      m.set(arrival, mapValue + 1)
+    else 
+      m.set(arrival, 1)
+  }
+  console.log(m)
+
+  console.timeEnd('MapSolution')
 }
 
 const ticketsMap = {
@@ -58,3 +87,4 @@ const ticketsMap = {
 }
 
 findDepartureArrival(ticketsMap)
+findArrivalWithMap(ticketsMap)
