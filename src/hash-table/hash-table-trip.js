@@ -87,4 +87,4 @@ const ticketsMap = {
 }
 
 findDepartureArrival(ticketsMap)
-findArrivalWithMap(ticketsMap)
+findArrivalWithMap(ticketsMap) //better, more performatic
