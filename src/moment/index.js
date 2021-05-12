@@ -14,9 +14,9 @@ moment.updateLocale('pt', {
 
 const journalDocumentTitle = () => {
   const time = 1424354400000
-  console.log('1: ', moment(time).utc().format('LL'))
-  console.log('2: ', moment(time).format('DD [de] MMM [de] YYYY')); 
-  console.log('3: ', moment().format('LL'))
+  console.log(moment(time).utc().format('LL'))
+  // console.log('2: ', moment(time).format('DD [de] MMM [de] YYYY')); 
+  // console.log('3: ', moment().format('LL'))
 }
 
 
