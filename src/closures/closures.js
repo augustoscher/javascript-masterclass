@@ -1,4 +1,6 @@
 // Closures are functions inside other functions that have access to their lexical environments.
+// The closure is a fundamental concept of JavaScript. This is a core concept in functional programming.
+
 
 function generator(a) {
   return function(param) {
