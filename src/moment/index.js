@@ -21,4 +21,14 @@ const journalDocumentTitle = () => {
 
 
 
-journalDocumentTitle();
+// journalDocumentTitle();
+
+const snapshotDateFrom = 1577844000000
+const snapshotDateTo = 1577930400000
+const receivedDateFrom = 1577847600000
+const receivedDateTo = 1577934000000
+
+console.log('snapshot dateFrom: ', moment(snapshotDateFrom))
+console.log('received dateFrom: ', moment(receivedDateFrom))
+console.log('snapshot dateTo: ', moment(snapshotDateTo))
+console.log('received dateTo: ', moment(receivedDateTo))
