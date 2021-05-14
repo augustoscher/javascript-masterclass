@@ -82,5 +82,18 @@ console.log("Grupos de captura");
 regExp = /^(\w+)@(\w+)(.\w{2,3})+$/;
 console.log(regExp.exec("mary@gmail.com.br")); //true
 
+// =============
+console.log();
+
+console.log("Replace all occurrences of a string")
+
+const testString = 'abc foo def foo xyz foo';
+
+// g modifier stands for global match. Replace will go from start to finish of given string
+result = testString.replace(/foo/g, 'bar');
+
+console.log("original: ", testString)
+console.log("result: ", result)
+
 
 
