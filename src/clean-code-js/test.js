@@ -14,7 +14,7 @@ const customers = [
 ]
 
 const mail = (customer) => { console.log(`sending email to ${customer.email}`)}
-const isActiveCustomer = (customers) => customers.active
+const isActiveCustomer = (customer) => customer.active
 
 const sendEmailToCustomers = (customers) => {
   customers.filter(isActiveCustomer).forEach(mail)
