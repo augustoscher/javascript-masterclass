@@ -112,3 +112,26 @@ function createTempFile(name) {
   createFile(`./temp/${name}`);
 }
 
+//========================================
+//=> Avoiding side effects - pt1
+// The main point is to avoid common pitfalls like sharing state between objects without any structure,
+// using mutable data types that can be written to by anything, and not centralizing where your side effects occur. 
+
+// BAD
+let name = "Augusto Scher";
+function splitIntoFirstAndLastName() {
+  name = name.split(" ");
+}
+splitIntoFirstAndLastName();
+console.log(name); // ['Augusto', 'Scher'];
+
+// GOOD
+function splitIntoFirstAndLastName(name) {
+  return name.split(" ");
+}
+
+const name = "Augusto Scher";
+const newName = splitIntoFirstAndLastName(name);
+
+console.log(name); // 'Augusto Scher';
+console.log(newName); // ['Augusto', 'Scher'];
