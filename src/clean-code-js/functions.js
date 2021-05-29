@@ -152,3 +152,22 @@ const addItemToCart = (cart, item) => {
   return [...cart, { item: item, date: new Date() }]
 }
 
+//========================================
+//=> Don't write to global functions
+// Let's think about an example: what if you wanted to extend JavaScript's native Array method to have a diff method that could show the 
+// difference between two arrays?  You could write your new function to the Array.prototype, but it could clash with another library that tried to do the same thing.
+// What if that other library was just using diff to find the difference between the first and last elements of an array?
+
+// BAD
+Array.prototype.diff = function diff(comparisonArray) {
+  const hash = new Set(comparisonArray);
+  return this.filter(elem => !hash.has(elem));
+};
+
+// GOOD
+class SuperArray extends Array {
+  diff(comparisonArray) {
+    const hash = new Set(comparisonArray);
+    return this.filter(elem => !hash.has(elem));
+  }
+}
