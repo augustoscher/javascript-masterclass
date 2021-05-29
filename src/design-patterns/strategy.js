@@ -1,9 +1,3 @@
-// https://betterprogramming.pub/design-patterns-using-the-strategy-pattern-in-javascript-3c12af58fd8a
-// When to Use the Strategy Pattern
-// 1. When you need to use several algorithms with different variations. You need create a concrete class to implement your algorithm (which can consist of a or some functions).
-// 2. When there are conditional statements around several related algorithms.
-// 3. When most of your classes have related behaviours.
-
 class LP {
   constructor({ name, experimentProvider }){
     this.name = name;
