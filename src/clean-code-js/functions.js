@@ -135,3 +135,20 @@ const newName = splitIntoFirstAndLastName(name);
 
 console.log(name); // 'Augusto Scher';
 console.log(newName); // ['Augusto', 'Scher'];
+
+
+//=> Avoiding side effects - pt2
+// Objects and arrays are two kinds of mutable values so it's important to handle them carefully when they're passed as parameters to a function.
+// A JavaScript function can change an object's properties or alter the contents of an array which could easily cause bugs elsewhere
+
+// BAD
+const addItemToCart = (cart, item) => {
+  cart.push({ item: item, date: new Date() })
+}
+
+// GOOD 
+// clones array, add new item and returns new array
+const addItemToCart = (cart, item) => {
+  return [...cart, { item: item, date: new Date() }]
+}
+
