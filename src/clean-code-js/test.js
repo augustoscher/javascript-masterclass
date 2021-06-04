@@ -21,3 +21,39 @@ const sendEmailToCustomers = (customers) => {
 }
 
 sendEmailToCustomers(customers)
+
+
+class Car {
+
+   setMake(make) {
+     this.make = make;
+     return this;
+   }
+ 
+   setModel(model) {
+     this.model = model;
+     return this;
+   }
+ 
+   setColor(color) {
+     this.color = color;
+     return this;
+   }
+ 
+   save() {
+      console.log('saving...')
+      return this;
+   }
+   
+   log() {
+      console.log(this.make, this.model, this.color);
+   }
+}
+ 
+ const car = new Car()
+               .setMake("Ford")
+               .setModel("F150")
+               .setColor("Black")
+               .save();
+
+car.log();
