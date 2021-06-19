@@ -33,3 +33,67 @@ function hashIt(data) {
     hash &= hash;
   }
 }
+
+
+// 2. Don't leave commented out code in your codebase
+// Version control exists for a reason. Leave old code in your history.
+
+// BAD
+doStuff();
+// doOtherStuff();
+// doSomeMoreStuff();
+// doSoMuchStuff();
+
+// GOOD
+doStuff();
+
+
+// 3. Don't have journal comments
+// Remember, use version control! There's no need for dead code, commented code, and especially journal comments. Use git log to get history!
+
+// BAD
+/**
+ * 2016-12-20: Removed monads, didn't understand them (RM)
+ * 2016-10-01: Improved using special monads (JP)
+ * 2016-02-03: Removed type-checking (LI)
+ * 2015-03-14: Added combine with type-checking (JR)
+ */
+ function combine(a, b) {
+  return a + b;
+}
+
+// GOOD
+function combine(a, b) {
+  return a + b;
+}
+
+
+// 4. Avoid positional markers
+// They usually just add noise. Let the functions and variable names along with the
+// proper indentation and formatting give the visual structure to your code.
+
+// BAD
+////////////////////////////////////////////////////////////////////////////////
+// Scope Model Instantiation
+////////////////////////////////////////////////////////////////////////////////
+$scope.model = {
+  menu: "foo",
+  nav: "bar"
+};
+
+////////////////////////////////////////////////////////////////////////////////
+// Action setup
+////////////////////////////////////////////////////////////////////////////////
+const actions = function() {
+  // ...
+};
+
+// GOOD
+$scope.model = {
+  menu: "foo",
+  nav: "bar"
+};
+
+const actions = function() {
+  // ...
+};
