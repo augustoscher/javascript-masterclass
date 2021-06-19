@@ -28,3 +28,32 @@ try {
   reportErrorToService(error);
   // OR do all three!
 }
+
+
+//========================================
+// 2. Don't ignore rejected promises
+// For the same reason you shouldn't ignore caught errors from try/catch.
+
+// BAD
+getdata()
+  .then(data => {
+    functionThatMightThrow(data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+// GOOD
+getdata()
+  .then(data => {
+    functionThatMightThrow(data);
+  })
+  .catch(error => {
+    // One option (more noisy than console.log):
+    console.error(error);
+    // Another option:
+    notifyUserOfError(error);
+    // Another option:
+    reportErrorToService(error);
+    // OR do all three!
+  });
