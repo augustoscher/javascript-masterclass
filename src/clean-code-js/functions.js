@@ -1,4 +1,7 @@
 //=> Function arguments - (at most 2)
+// I think that is a good practice let functions with few arguments (at most three). 
+// Functions with many arguments can be confusing. Using object as an argument, we can name each argument without worrying about order.
+// I think this keeps functions clearer.
 
 // BAD
 function createMenu(title, body, buttonText, cancellable) {
