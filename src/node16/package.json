@@ -1,5 +1,6 @@
 {
   "name": "node16",
+  "type": "module",
   "engines": {
     "node": ">=16"
   },
