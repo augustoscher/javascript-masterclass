@@ -22,10 +22,23 @@ let newNumber = 9007199254740992n;
 console.log(newNumber); //9007199254740995n
 
 
+// # 2: Dynamic Import
+// Dynamic imports in JavaScript give you the option to import JS files dynamically as modules in your application natively.
+// This is just like how you do it with Webpack and Babel at the moment.
+// This feature will help you ship on-demand-request code, better known as code splitting, without the overhead of webpack or other module bundlers.
+// You can also conditionally load code in an if-else block if you like.
+// The good thing is that you actually import a module, and so it never pollutes the global namespace.
+console.log(`\n= 2. DYNAMIC IMPORT = `)
+if (1==1) {
+  const module = await import('./numbers.js')
+  const res = module.addNumbers(2, 3 ,5);
+  console.log(res);
+}
+
 // # 3: Nullish Coalescing
 // Check if a variable is nullish – that is if it is either undefined or null,
 // like when it's okay for a variable to have an empty string, or even a false value.
-console.log(`\n= 3. BIGINT = `)
+console.log(`\n= 3. NULISH COALESCING OPERATOR (??) = `)
 console.log(undefined ?? 'some truthy value');
 console.log(null ?? 'some truthy value');
 console.log(false ?? 'some truthy value');
