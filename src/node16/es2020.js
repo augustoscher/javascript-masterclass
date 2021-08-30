@@ -61,3 +61,20 @@ console.log(`\n= 4. OPTIONAL CHAINING OPERATOR (?) = `)
 const person = { name: 'Augusto', stats: { weigth: 90, age: 30 }}
 console.log(person?.stats?.age)
 console.log(person?.stats?.heigth) //not present will return undefined
+
+
+// # 5: Promise.allSettled
+// The Promise.allSettled method accepts an array of Promises and only resolves when all of them are settled – either resolved or rejected.
+// This was not available natively before, even though some close implementations like race and all were available.
+// This brings "Just run all promises – I don't care about the results" natively to JavaScript.
+console.log(`\n= 5. Promise.allSettled = `)
+const myPromisesArray = [
+  Promise.resolve(100),
+  Promise.reject(null),
+  Promise.reject(new Error('Oh no')),
+];
+Promise.allSettled(myPromisesArray).then(res => {
+  console.log('All promises settled ', res)
+});
+
+
