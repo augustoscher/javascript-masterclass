@@ -35,6 +35,7 @@ if (1==1) {
   console.log(res);
 }
 
+
 // # 3: Nullish Coalescing
 // Check if a variable is nullish – that is if it is either undefined or null,
 // like when it's okay for a variable to have an empty string, or even a false value.
@@ -50,3 +51,13 @@ console.log(undefined || 'some truthy value');
 console.log(null || 'some truthy value');
 console.log(false || 'some truthy value');
 console.log(NaN || 'some truthy value');
+
+
+// # 4: Optional Chaining
+// Optional chaining syntax allows you to access deeply nested object properties without worrying if the property exists or not.
+// If it exists, great! If not, undefined will be returned.
+// This not only works on object properties, but also on function calls and arrays. Super convenient! Here's an example:
+console.log(`\n= 4. OPTIONAL CHAINING OPERATOR (?) = `)
+const person = { name: 'Augusto', stats: { weigth: 90, age: 30 }}
+console.log(person?.stats?.age)
+console.log(person?.stats?.heigth) //not present will return undefined
