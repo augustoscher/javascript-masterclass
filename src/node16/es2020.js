@@ -73,8 +73,18 @@ const myPromisesArray = [
   Promise.reject(null),
   Promise.reject(new Error('Oh no')),
 ];
-Promise.allSettled(myPromisesArray).then(res => {
+await Promise.allSettled(myPromisesArray).then(res => {
   console.log('All promises settled ', res)
 });
 
+
+// # 6: String#matchAll
+// matchAll is a new method added to the String prototype which is related to Regular Expressions.
+// This returns an iterator which returns all matched groups one after another.
+// Let's have a look at a quick example:
+console.log(`\n= 6. String#matchAll = `)
+const regexp = /[a-c]/g;
+const str = 'abc';
+const iterator = str.matchAll(regexp);
+Array.from(iterator, result => console.log(result));
 
