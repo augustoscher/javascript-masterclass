@@ -86,5 +86,5 @@ console.log(`\n= 6. String#matchAll = `)
 const regexp = /[a-c]/g;
 const str = 'abc';
 const iterator = str.matchAll(regexp);
-Array.from(iterator, result => console.log(result));
+Array.from(iterator, result => console.log(result)); //prints all results
 
