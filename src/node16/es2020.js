@@ -1,5 +1,6 @@
 // https://www.freecodecamp.org/news/javascript-new-features-es2020/
 // https://medium.com/@analuizabastos/o-que-tem-de-novo-no-es2020-es11-a960bcb72351
+// https://medium.com/gradeup/optional-chaining-and-nullish-coalescing-as-a-saviour-34a0c024c6b3
 
 // ECMASCRIPT 2020 (ES11)
 
@@ -54,6 +55,14 @@ console.log(null || 'some truthy value');
 console.log(false || 'some truthy value');
 console.log(NaN || 'some truthy value');
 
+// The nullish coalescing operator (??) is a logical operator that returns
+// its right-hand side operand when its left-hand side operand is null or undefined and, otherwise, returns its left-hand side operand.
+
+let val = undefined ?? 'oi'
+console.log('val: ', val)
+val = null ?? 'oi2'
+console.log('val: ', val)
+
 
 // # 4: Optional Chaining
 // Optional chaining syntax allows you to access deeply nested object properties without worrying if the property exists or not.
@@ -63,6 +72,34 @@ console.log(`\n= 4. OPTIONAL CHAINING OPERATOR (?) = `)
 const person = { name: 'Augusto', stats: { weigth: 90, age: 30 }}
 console.log(person?.stats?.age)
 console.log(person?.stats?.heigth) //not present will return undefined
+
+const addressData = {
+  user: {
+    address: {
+      street: 'Xunda street'
+    }
+  }
+};
+
+const { user } = addressData; 
+// const street = user && user.address && user.street
+const street = user?.address?.street
+console.log(street)
+
+// nulish coalescing and optional chaining
+const data = {
+  name: 'Augusto',
+  location: {
+    city: 'Blumenau',
+    state: 'SC'
+  },
+  car: {
+    name: 'Lamburghini'
+  }
+};
+
+const bikeName = data.bike?.name ?? 'No bike';
+console.log(bikeName);
 
 
 // # 5: Promise.allSettled
