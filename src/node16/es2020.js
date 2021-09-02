@@ -28,6 +28,8 @@ console.log(newNumber); //9007199254740995n
 // This feature will help you ship on-demand-request code, better known as code splitting, without the overhead of webpack or other module bundlers.
 // You can also conditionally load code in an if-else block if you like.
 // The good thing is that you actually import a module, and so it never pollutes the global namespace.
+
+// Para que isso é importante? Podemos importar nossos arquivos de forma “Lazy” ou seja, apenas executar código dos arquivos conforme queremos.
 console.log(`\n= 2. DYNAMIC IMPORT = `)
 if (1==1) {
   const module = await import('./numbers.js')
