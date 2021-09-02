@@ -100,3 +100,15 @@ Array.from(iterator, result => console.log(result)); //prints all results
 // ES2020 brings us globalThis which always refers to the global object, no matter where you are executing your code:
 console.log(`\n= 7. globalThis = `)
 console.log(globalThis.setTimeout === global.setTimeout)
+
+
+// # 8: Module Namespace Exports
+console.log(`\n= 8. Module Namespace Exports = `)
+// export * as utils from './utils.mjs'
+// this is equivalent to:
+// import * as utils from './utils.mjs'
+// export { utils }
+
+
+
+
