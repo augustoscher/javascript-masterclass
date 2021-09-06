@@ -1,3 +1,5 @@
+// https://github.com/cod3rcursos/regex-course/blob/main/Cheatsheet.md#javaScript
+
 // 1. Pattern Declaration
 // In JavaScript, you can define regex patterns using single-, double-quoted, or template strings.
 // An alternative to strings is RegExp instances, that can be declared using the RegExp Constructor or the literal notation(double forward slash).
