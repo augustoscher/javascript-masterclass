@@ -1,4 +1,19 @@
+// 1. Pattern Declaration
+// In JavaScript, you can define regex patterns using single-, double-quoted, or template strings.
+// An alternative to strings is RegExp instances, that can be declared using the RegExp Constructor or the literal notation(double forward slash).
+const sentence = "The quick brown fox jumped over the lazy dog"
+
+// Regex Literal 
+const thePattern = /the/
+
+// RegExp Instance
+const thePattern1 = new RegExp("the")
+const thePattern2 = new RegExp(thePattern)
+
+
+// ===================================
 console.log(`Regular Expressions`);
+// regexp
 //estruturas formadas por uma sequencia de caracteres que especificam
 //um padrão formal que servem para validar, extrair ou mesmo substituir
 //caracteres dentro de uma string.
@@ -94,6 +109,3 @@ result = testString.replace(/foo/g, 'bar');
 
 console.log("original: ", testString)
 console.log("result: ", result)
-
-
-
