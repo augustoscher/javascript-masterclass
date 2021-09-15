@@ -1,0 +1,16 @@
+{
+  "name": "phrasal-terms-query",
+  "version": "1.0.0",
+  "main": "index.js",
+  "engines": {
+    "node": "16"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "csv-split-stream": "^1.0.2",
+    "csvtojson": "^2.0.10",
+    "json2csv": "^5.0.6",
+    "node-fetch": "^3.0.0"
+  }
+}
