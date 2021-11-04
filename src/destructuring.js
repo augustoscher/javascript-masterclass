@@ -38,6 +38,11 @@ console.log("=== destructuring default values === ");
 const l = "C;Dennis Ritchie;1972".split(";");
 const [n5 = "==", a5 = "==", y5 = "=="] = "JavaScript;Brandon Eich".split(";");
 console.log(n5, a5, y5);
+console.log();
+
+let url = 'http://stf.test.com.br';
+console.log(url.split('//')[1].split('.')[0]) //will print stf
+
 
 console.log();
 console.log("=== destructuring with objects === ");
