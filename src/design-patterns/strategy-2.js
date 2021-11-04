@@ -18,8 +18,8 @@ class SixpackExperimentProvider {
 }
 
 const config = {
-  'ARGOS': new ArgosExperimentProvider(),
-  'SIXPACK': new SixpackExperimentProvider(),
+  'ARGOS': ArgosExperimentProvider,
+  'SIXPACK': SixpackExperimentProvider,
 }
 
 class ExperimentProviderHandler {
@@ -33,7 +33,7 @@ class ExperimentProviderHandler {
 }
 
 const lp1 = new LP({ name: 'A', experimentProvider: 'ARGOS'});
-const lp2 = new LP({ name: 'A', experimentProvider: 'SIXPACK'});
+const lp2 = new LP({ name: 'B', experimentProvider: 'SIXPACK'});
 
 const experimentHandler = new ExperimentProviderHandler(lp1);
-experimentHandler.buildExperiment(config[lp1.experimentProvider])
+experimentHandler.buildExperiment(new config[lp1.experimentProvider]())
