@@ -125,3 +125,21 @@ console.log(`=== fill === `);
 console.log(languages);
 languages.fill("JavaScript", 1);
 console.log(languages);
+
+console.log()
+console.log("=== insertIf ===")
+const insertIf = (condition, item) => 
+  condition ? item : []
+
+const series = ['GOT', 'Breaking Bad', 'Peaky Blinders']
+const x = 1
+const y = 1
+const z = 2
+const goodSeries = [
+  ...series,
+  ...insertIf(x === y, ["Ozark"]),
+  ...insertIf(x === y, ["Better Call Saul"]),
+  ...insertIf(x === z, ["Altered Carbon"]),
+]
+
+console.log(goodSeries)
