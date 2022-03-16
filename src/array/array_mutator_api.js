@@ -32,7 +32,7 @@ console.log(languages);
 console.log();
 console.log(`=== splice === `);
 //remove, substitui ou adiciona um ou mais elementos em uma determinada posição.
-console.log(languages.splice(languages.indexOf('JavaScript'), 1));
+console.log(languages.splice(languages.indexOf("JavaScript"), 1));
 console.log(languages);
 //adicionando elementos com splice
 console.log(languages.splice(2, 0, "JavaScript", "Java"));
@@ -44,10 +44,48 @@ console.log(languages);
 console.log();
 console.log(`=== sort === `);
 
+const results = [
+  {
+    _id: "61eac3ac1f205e6f732a5f12",
+    query: '"segunda"',
+    artifact: "jurisprudencia",
+    qtdResults: 10,
+    qtdMustHaveDocs: 0,
+    qtdDifferentResults: 0,
+    qtdSupremeCourtResults: 3,
+    mustHavesRegardingLastEvaluation: 0,
+    precision: 0,
+  },
+  {
+    _id: "61eac3ac1f205e6f732a5f13",
+    query: '"primeira"',
+    artifact: "jurisprudencia",
+    qtdResults: 0,
+    qtdMustHaveDocs: 1,
+    qtdDifferentResults: 0,
+    qtdSupremeCourtResults: 0,
+    mustHavesRegardingLastEvaluation: 0,
+  },
+  {
+    _id: "61eac3ac1f205e6f732a5f13",
+    query: '"primeira+++"',
+    artifact: "jurisprudencia",
+    qtdResults: 0,
+    qtdMustHaveDocs: 5,
+    qtdDifferentResults: 0,
+    qtdSupremeCourtResults: 0,
+    mustHavesRegardingLastEvaluation: 0,
+  },
+];
+
+results.sort(function (a, b) {
+  return b.qtdMustHaveDocs - a.qtdMustHaveDocs;
+});
+
 const langs = [
   { name: "Python", year: 1991 },
   { name: "C", year: 1972 },
-  { name: "Java", year: 1995 }
+  { name: "Java", year: 1995 },
 ];
 
 langs.sort(function (a, b) {
@@ -64,11 +102,11 @@ console.log("ordena descrescente por year");
 console.log(langs);
 
 langs.sort(function (a, b) {
-  return (a.name <= b.name) ? -1 : 1;
+  return a.name <= b.name ? -1 : 1;
 });
 //or
 langs.sort(function (a, b) {
-  return a.name.localeCompare(b.name)
+  return a.name.localeCompare(b.name);
 });
 console.log();
 console.log("ordena por ordem alfabetica");
@@ -84,6 +122,6 @@ console.log();
 console.log(`=== fill === `);
 //preenche todo array com o que for passado.
 //pode se definir tb o indice de onde deve começar a popular
-console.log(languages)
+console.log(languages);
 languages.fill("JavaScript", 1);
 console.log(languages);

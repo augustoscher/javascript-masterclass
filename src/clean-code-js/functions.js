@@ -1,6 +1,6 @@
 //=> Function arguments - (at most 3)
 
-// I think that is a good practice let functions with few arguments (at most three). 
+// I think that is a good practice let functions with few arguments (at most two). 
 // Functions with many arguments can be confusing. Using object as an argument, we can name each argument without worrying about order.
 // I think this keeps functions clearer. 
 
