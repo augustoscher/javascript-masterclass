@@ -76,6 +76,9 @@ console.log(result);
 console.log();
 console.log(`=== reduce === `);
 //retorna um valor com base na function passada por parametro.
+// The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order,
+// passing in the return value from the calculation on the preceding element.
+// The final result of running the reducer across all elements of the array is a single value.
 result = frameworks.reduce(function (total, framework) {
   return total += framework.contributors;
 }, 0);
