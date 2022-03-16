@@ -80,3 +80,10 @@ result = frameworks.reduce(function (total, framework) {
   return total += framework.contributors;
 }, 0);
 console.log(result);
+
+// reduce is a good option to sum an array of numbers
+const nums = [10, 10, 9, 1, 8, 2, 7, 3]
+const sum = nums.reduce((acum, value) => {
+  return acum += value
+}, 0)
+console.log(sum)
