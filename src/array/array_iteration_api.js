@@ -90,3 +90,40 @@ const sum = nums.reduce((acum, value) => {
   return acum += value
 }, 0)
 console.log(sum)
+
+
+
+const values = [
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1646309600452, date: 1644933600000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943633971, date: 1627052400000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943633110, date: 1614610800000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715994030, date: 1611756000000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715959846, date: 1611756000000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715993228, date: 1611756000000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715954187, date: 1611756000000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715960893, date: 1611756000000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715962057, date: 1611756000000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715957717, date: 1611756000000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943631046, date: 1600441200000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943632085, date: 1600441200000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1600557023762, date: 1600441200000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943634919, date: 1572271200000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943637236, date: 1568818800000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943638330, date: 1564671600000},
+  {court: 'TRT-20', jurisTypeLabel: 'Acordão', publishedDate: 1501887866619, date: 1501761600000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943640197, date: 1490281200000},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943636306, date: 1488985200000},
+]
+
+const res = values.reduce((acc, value) => {
+  if (acc.find(item =>
+    item.date === value.date &&
+    item.jurisTypeLabel === value.jurisTypeLabel)) {
+    return acc
+  }
+  return [...acc, value]
+}, [])
+
+console.log(res)
+console.log(values.length)
+console.log(res.length)
