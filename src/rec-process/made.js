@@ -2,7 +2,7 @@
 class NumberGenerator {
 
   constructor(numbers) {
-    this.numbersArray = numbers.split(", ").map(item => parseInt(item));
+    this.numbersArray = numbers.split(", ");
   }
 
   mode() {
