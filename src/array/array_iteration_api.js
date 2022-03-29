@@ -94,36 +94,39 @@ console.log(sum)
 
 
 const values = [
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1646309600452, date: 1644933600000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943633971, date: 1627052400000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943633110, date: 1614610800000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715994030, date: 1611756000000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715959846, date: 1611756000000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715993228, date: 1611756000000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715954187, date: 1611756000000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715960893, date: 1611756000000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715962057, date: 1611756000000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1611715957717, date: 1611756000000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943631046, date: 1600441200000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943632085, date: 1600441200000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1600557023762, date: 1600441200000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943634919, date: 1572271200000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943637236, date: 1568818800000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943638330, date: 1564671600000},
-  {court: 'TRT-20', jurisTypeLabel: 'Acordão', publishedDate: 1501887866619, date: 1501761600000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943640197, date: 1490281200000},
-  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943636306, date: 1488985200000},
-]
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1646309600452},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943633971},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943633110},
+  {court: 'TRT-20a', jurisTypeLabel: 'Sentença', publishedDate: 1611715994030},
+  {court: 'TRT-20b', jurisTypeLabel: 'Sentença', publishedDate: 1611715959846},
+  {court: 'TRT-20c', jurisTypeLabel: 'Sentença', publishedDate: 1611715993228},
+  {court: 'TRT-20d', jurisTypeLabel: 'Sentença', publishedDate: 1611715954187},
+  {court: 'TRT-20e', jurisTypeLabel: 'Sentença', publishedDate: 1611715960893},
+  {court: 'TRT-20f', jurisTypeLabel: 'Sentença', publishedDate: 1611715962057},
+  {court: 'TRT-20g', jurisTypeLabel: 'Sentença', publishedDate: 1611715957717},
+  {court: 'TRT-201', jurisTypeLabel: 'Sentença', publishedDate: 1632943631046},
+  {court: 'TRT-202', jurisTypeLabel: 'Sentença', publishedDate: 1632943632085},
+  {court: 'TRT-203', jurisTypeLabel: 'Sentença', publishedDate: 1600557023762},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943634919},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943637236},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943638330},
+  {court: 'TRT-20', jurisTypeLabel: 'Acordão', publishedDate: 1501887866619},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943640197},
+  {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943636306},
+].sort((a, b) => (b.publishedDate - a.publishedDate ))
 
-const res = values.reduce((acc, value) => {
-  if (acc.find(item =>
-    item.date === value.date &&
-    item.jurisTypeLabel === value.jurisTypeLabel)) {
-    return acc
-  }
-  return [...acc, value]
-}, [])
+const res = values
+  .map(item => ({ ...item, dateStr: new Date(item.publishedDate).toLocaleDateString()}))
+  .reduce((acc, value) => {
+    if (acc.find(item =>
+      item.dateStr === value.dateStr &&
+      item.jurisTypeLabel === value.jurisTypeLabel)) {
+      return acc
+    }
+    return [...acc, value]
+  }, [])
 
-console.log(res)
+console.log()
+console.log(res.map(({ court, jurisTypeLabel, dateStr }) => ({ court, jurisTypeLabel, dateStr })))
 console.log(values.length)
 console.log(res.length)
