@@ -115,18 +115,36 @@ const values = [
   {court: 'TRT-20', jurisTypeLabel: 'Sentença', publishedDate: 1632943636306},
 ].sort((a, b) => (b.publishedDate - a.publishedDate ))
 
-const res = values
-  .map(item => ({ ...item, dateStr: new Date(item.publishedDate).toLocaleDateString()}))
-  .reduce((acc, value) => {
-    if (acc.find(item =>
-      item.dateStr === value.dateStr &&
-      item.jurisTypeLabel === value.jurisTypeLabel)) {
+const mappedValues = values.map(item => ({ ...item, dateStr: new Date(item.publishedDate).toLocaleDateString()}))
+
+const res = 
+  mappedValues.reduce((acc, value) => {
+    if (acc.find(item => item.dateStr === value.dateStr && item.jurisTypeLabel === value.jurisTypeLabel)) {
       return acc
     }
     return [...acc, value]
   }, [])
 
 console.log()
-console.log(res.map(({ court, jurisTypeLabel, dateStr }) => ({ court, jurisTypeLabel, dateStr })))
-console.log(values.length)
+// console.log(res.map(({ court, jurisTypeLabel, dateStr }) => ({ court, jurisTypeLabel, dateStr })))
+console.log(mappedValues.length)
 console.log(res.length)
+
+console.log("==============")
+
+// const res2 = mappedValues.filter((value, _, arr) =>
+//     !arr.some(
+//       (item) => item.dateStr === value.dateStr && item.jurisTypeLabel === value.jurisTypeLabel
+//     )
+// )
+
+const res2 = mappedValues.filter((value, idx, arr) => {
+  if (arr.includes(item => item.dateStr === value.dateStr && item.jurisTypeLabel === value.jurisTypeLabel)){
+    return true
+  }
+  return false
+  // return !arr.some((item) => item.dateStr === value.dateStr && item.jurisTypeLabel === value.jurisTypeLabel)
+})
+
+console.log(mappedValues.length)
+console.log(res2.length)
