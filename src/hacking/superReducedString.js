@@ -17,6 +17,5 @@ if (s.length > 0) {
 } else {
   console.log("Empty String")
 }
-// for (let i = 0; i < )
 
 
