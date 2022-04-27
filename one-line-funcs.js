@@ -70,3 +70,6 @@ const dayOfYear = (date) =>
 dayOfYear(new Date()); // 117
 
 
+// 12. clearCookies
+// Clear all cookies stored in browser
+const clearCookies = document.cookie.split(';').forEach(cookie => document.cookie = cookie.replace(/^ +/, '').replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`));
