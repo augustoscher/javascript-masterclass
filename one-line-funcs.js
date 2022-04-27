@@ -85,3 +85,9 @@ randomBoolean()
 // remove all duplicated values
 const removeDuplicates = (arr) => [...new Set(arr)];
 removeDuplicates([31, 56, 12, 31, 45, 12, 31]); // [ 31, 56, 12, 45 ]
+
+
+// 15. randomItem
+// returns an random item from array
+const randomArrayItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+randomArrayItem(['lol', 'a', 2, 'foo', 52, 'Jhon', 'hello', 57]);
