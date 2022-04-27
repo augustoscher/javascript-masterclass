@@ -61,3 +61,12 @@ shuffleArray([1, 2, 3, 4]); // [4, 3, 1, 2]
 // 10. arrayAvg
 const avgArray = (arr) => arr.reduce((acc, next) => acc + next, 0) / arr.length
 avgArray([1, 2, 3]) // 2
+
+
+// 11. dayOfYear
+// get the day of the year
+const dayOfYear = (date) =>
+  Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+dayOfYear(new Date()); // 117
+
+
