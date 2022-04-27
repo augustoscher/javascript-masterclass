@@ -58,3 +58,6 @@ const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
 shuffleArray([1, 2, 3, 4]); // [4, 3, 1, 2]
 
 
+// 10. arrayAvg
+const avgArray = (arr) => arr.reduce((acc, next) => acc + next, 0) / arr.length
+avgArray([1, 2, 3]) // 2
