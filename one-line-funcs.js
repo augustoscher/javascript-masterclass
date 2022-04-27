@@ -33,3 +33,11 @@ randomHex() // #a3c040
 // Find the number of gap days between two dates
 const dayDiff = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
 dayDiff(new Date("2020-10-21"), new Date("2021-10-22")) // 366
+
+
+// 6. isWeekDay
+// Check if it's a week day
+const isWeekday = (date) => date.getDay() % 6 !== 0;
+isWeekday(new Date(2021, 0, 11)); //true (is monday)
+
+
