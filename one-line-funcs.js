@@ -52,3 +52,9 @@ const reverseStr = (str) => str.split("").reverse().join("")
 reverseStr('rehcs otsugua');
 
 
+// 9. shuffleArray
+// Shuffle array
+const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
+shuffleArray([1, 2, 3, 4]); // [4, 3, 1, 2]
+
+
