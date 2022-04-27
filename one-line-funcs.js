@@ -73,3 +73,11 @@ dayOfYear(new Date()); // 117
 // 12. clearCookies
 // Clear all cookies stored in browser
 const clearCookies = document.cookie.split(';').forEach(cookie => document.cookie = cookie.replace(/^ +/, '').replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`));
+
+
+// 13. randomBoolean
+// a 50/50 change on returning true of false
+const randomBoolean = () => Math.random() >= 0.5;
+randomBoolean()
+
+
