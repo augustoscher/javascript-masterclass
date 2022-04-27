@@ -41,3 +41,7 @@ const isWeekday = (date) => date.getDay() % 6 !== 0;
 isWeekday(new Date(2021, 0, 11)); //true (is monday)
 
 
+// 7. stripHtml
+// remove html tags
+const stripHtml = html => (new DOMParser().parseFromString(html, 'text/html')).body.textContent || '';
+stripHtml('<h1>Hello <strong>World</strong>!!!</h1>'); // Hello World!!!
