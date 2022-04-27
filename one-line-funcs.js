@@ -25,3 +25,7 @@ const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toStr
 rgbToHex(0, 51, 255); // #0033ff
 
 
+// 4. Find the number of gap days between two dates
+const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
+
+dayDif(new Date("2020-10-21"), new Date("2021-10-22")) // 366
