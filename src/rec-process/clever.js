@@ -66,7 +66,7 @@ const getLikes = ({ userData, minimalScore }) => {
       }
     }).filter(item => item.likes >= qtdMustLike);
 
-    const sorted = books.sort(function (a, b){
+    const sorted = books.sort(function (a, b) {
       return b.likes - a.likes;
     })
 
