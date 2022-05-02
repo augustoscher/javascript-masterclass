@@ -70,6 +70,8 @@ const getLikes = ({ userData, minimalScore }) => {
       return b.likes - a.likes;
     })
 
+    // a new sort only when likes are equal would work?
+
     for (let i = 0; i < sorted.length; i++) {
       const current = sorted[i]
       for (let j = i+1; j < sorted.length; j++) {
