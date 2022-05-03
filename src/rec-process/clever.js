@@ -66,30 +66,21 @@ const getLikes = ({ userData, minimalScore }) => {
       }
     }).filter(item => item.likes >= qtdMustLike);
 
-    const sorted = books.sort(function (a, b) {
+    const result = books.sort(function (a, b) {
       return b.likes - a.likes;
+    }).sort((a, b) => {
+      if (a.likes === b.likes) {
+        return a.book.localeCompare(b.book, 'en', { sensitivity: 'base' })
+      }
     })
 
-    // a new sort only when likes are equal would work?
-
-    for (let i = 0; i < sorted.length; i++) {
-      const current = sorted[i]
-      for (let j = i+1; j < sorted.length; j++) {
-        const next = sorted[j]
-        if (current.likes === next.likes) {
-          // troca de posicao
-          console.log("opa")
-        }
-      }
-    }
-
-    return sorted
+    return result
   }
 
   return allFriendsBooks
 }
 
 const res = getLikes({ userData: data, minimalScore: 0.3})
-console.log(res);
+console.log(res.map(({ book }) => book));
 
 
