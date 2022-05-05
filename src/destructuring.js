@@ -91,3 +91,14 @@ console.log(sum([2, 5]));
 const sub = ({ a, b }) => a - b;
 console.log(sub({ a: 5, b: 2 }));
 
+console.log()
+console.log("Tip")
+
+const lang = ['javascript', 'Go', 'Scala', 'Java']
+const { length, 0: first, [length-1]: last } = lang
+
+console.log(length)
+console.log(first)
+console.log(last)
+
+
