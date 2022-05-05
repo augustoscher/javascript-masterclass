@@ -39,9 +39,9 @@ const getLikes = ({ userData, minimalScore }) => {
   const { friends = [] } = userData;
   let allFriendsBooks = [];
 
-  friends.forEach(f => {
-    const b = f?.likes?.books || [];
-    const filteredBooks = b.filter(item => !userBooks.includes(item));
+  friends.forEach(friend => {
+    const books = friend?.likes?.books || [];
+    const filteredBooks = books.filter(item => !userBooks.includes(item));
     allFriendsBooks = [...allFriendsBooks, ...filteredBooks];
   });
   
