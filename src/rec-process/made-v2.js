@@ -12,6 +12,8 @@ class NumberGenerator {
       // } else {
       //   map.set(element, 1);
       // }
+
+      // is the same:
       const existingValue = map.get(element);
       map.set(element, !!existingValue ? existingValue + 1 : 1)
       return map;
