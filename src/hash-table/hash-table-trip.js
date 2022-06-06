@@ -22,7 +22,7 @@ const findDepartureArrival = tickets => {
     const depart = tickets[tkt].departure;
     const arrival = tickets[tkt].arrival;
 
-    if (! (depart in hashMap))
+    if (!(depart in hashMap))
       hashMap[depart] = -1;
     else
       hashMap[depart] = hashMap[depart] -1;
@@ -58,11 +58,12 @@ const findArrivalWithMap = tickets => {
     else 
       m.set(arrival, 1)
   }
-  console.log(m)
 
+  console.log(m)
   console.timeEnd('MapSolution')
 }
 
+// LA -> MALI
 const ticketsMap = {
   tkt1: {
     departure: 'Los Angeles',
