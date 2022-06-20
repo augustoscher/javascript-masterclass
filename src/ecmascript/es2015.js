@@ -1,3 +1,8 @@
+// ECMAScript 2015 (ES6)
+// https://github.com/willianjusten/es6-curso
+// http://es6-features.org/#Constants
+
+
 // =========== CONST 
 
 const test = {
