@@ -17,4 +17,3 @@ const counter = {
 
 Object.freeze(counter);
 export { counter };
-
