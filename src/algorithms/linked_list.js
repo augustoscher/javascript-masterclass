@@ -14,3 +14,6 @@
 // | :----: | :------: | :------: | :-----: |
 // |  O(n)  |  O(n)    |  O(1)    |  O(n)   |
 
+// Arrays have O(1) random access, but are really expensive to add stuff onto or remove stuff from.
+
+// Linked lists are really cheap to add or remove items anywhere and to iterate, but random access is O(n).
