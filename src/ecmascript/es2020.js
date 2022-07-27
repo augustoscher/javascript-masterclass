@@ -95,12 +95,14 @@ const data = {
   },
   car: {
     name: 'Lamburghini'
-  }
+  },
 };
 
 const bikeName = data.bike?.name ?? 'No bike';
 console.log(bikeName);
 
+const pets = data.pets?.map((pet) => pet.name) || [];
+console.log('pets:', pets)
 
 // # 5: Promise.allSettled
 // The Promise.allSettled method accepts an array of Promises and only resolves when all of them are settled – either resolved or rejected.
