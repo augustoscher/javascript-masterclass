@@ -48,3 +48,33 @@ console.log(getLetter(val));
 
 // console.log(h.has(val[0]));
 
+
+const getDateRangeType = (label) => {
+  switch (label) {
+    case '1dia':
+      return 'last_day'
+    case '7dias':
+      return 'last_week'
+    case '30dias':
+      return 'last_month'
+    case '365dias':
+      return 'last_year'
+  }
+}
+
+const getDateRange = ({ l, dateFrom, dateTo }) => {
+  const type = getDateRangeType(l)
+  if (type) return { type };
+
+  if (dateFrom && dateTo) {
+    return {
+      type: 'custom',
+      date_from: dateFrom,
+      date_to: dateTo.split('T')[0],
+    };
+  }
+
+  return {
+    type: 'none',
+  };
+};
