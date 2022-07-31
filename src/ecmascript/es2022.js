@@ -19,10 +19,16 @@
 // There are different ways to match indices
 // a) Match indices for numbered group
 const regexp = /(a+)(b+)/d
-const matchObj = regexp.exec('aaaabb');
+
+let matchObj = regexp.exec('aaaabb');
 console.log(matchObj);
 
 // Due to the regular expression flag /d, matchObj also has a property .indices 
 // that records for each numbered group where it was captured in the input string
 console.log(matchObj.indices); // [ [ 0, 6 ], [ 0, 4 ], [ 4, 6 ], groups: undefined ]
+
+// b) Match indices for named groups
+matchObj = /(?<as>a+)(?<bs>b+)/d.exec('aaaabb');
+console.log(matchObj.indices.groups); // { as: [ 0, 4 ], bs: [ 4, 6 ] }
+
 // -----------------------------------
