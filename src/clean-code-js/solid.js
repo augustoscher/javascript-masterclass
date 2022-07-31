@@ -243,7 +243,7 @@ class DOMTraverser {
   traverse() {}
 }
 
-const $ = new DOMTraverser({
+const trav = new DOMTraverser({
   rootNode: document.getElementsByTagName("body"),
   animationModule() {} // Most of the time, we won't need to animate when traversing.
 });
