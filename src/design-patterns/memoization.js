@@ -16,7 +16,6 @@ function memoize(targetFunction) {
 }
 
 const sum = () =>  5 + 5;
-
 const memoizedSum = memoize(sum)
 
 memoizedSum()
