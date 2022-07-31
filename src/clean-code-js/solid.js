@@ -243,7 +243,7 @@ class DOMTraverser {
   traverse() {}
 }
 
-const trav = new DOMTraverser({
+let trav = new DOMTraverser({
   rootNode: document.getElementsByTagName("body"),
   animationModule() {} // Most of the time, we won't need to animate when traversing.
 });
@@ -270,7 +270,7 @@ class DOMTraverser {
   traverse() {}
 }
 
-const $ = new DOMTraverser({
+trav = new DOMTraverser({
   rootNode: document.getElementsByTagName("body"),
   options: {
     animationModule() {}
@@ -318,7 +318,7 @@ class InventoryTracker {
   }
 }
 
-const inventoryTracker = new InventoryTracker(["apples", "bananas"]);
+let inventoryTracker = new InventoryTracker(["apples", "bananas"]);
 inventoryTracker.requestItems();
 
 // GOOD
@@ -353,7 +353,7 @@ class InventoryRequesterV2 {
 
 // By constructing our dependencies externally and injecting them, we can easily
 // substitute our request module for a fancy new one that uses WebSockets.
-const inventoryTracker = new InventoryTracker(
+inventoryTracker = new InventoryTracker(
   ["apples", "bananas"],
   new InventoryRequesterV2()
 );
