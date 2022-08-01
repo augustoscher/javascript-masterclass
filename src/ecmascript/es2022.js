@@ -221,3 +221,15 @@ class Translator {
 console.log(Translator.englishWords) // ["yes", "no", "maybe"]
 console.log(Translator.germanWords) // ["ja", "nein", "vielleicht"]
 
+
+// e) Private slot checks
+// This functionality helps us to check that the object has the given private slot in it.
+class C1 {
+  #priv() {}
+
+  static check(obj) {
+    return #priv in obj;
+  }
+}
+
+console.log(C1.check(new C1())) // true
