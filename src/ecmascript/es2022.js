@@ -98,6 +98,7 @@ const resource = await Promise.any([
 // 6. New members of classes
 // Public properties can be created via:
 
+
 // a) Instance public fields
 class InstPublicClass {
   // Instance public field
@@ -114,8 +115,73 @@ inst.instancePublicField = 'xunda'
 console.log(inst) // { instancePublicField: 'xunda', property: 'constrArg' }
 
 
+// b) Static public fields
+const computedFieldKey = Symbol('computedFieldKey');
+class StaticPublicFieldClass {
+  static identifierFieldKey = 1;
+  static 'quoted field key' = 2;
+  static [computedFieldKey] = 3;
+}
+console.log(StaticPublicFieldClass.identifierFieldKey) // 1
+console.log(StaticPublicFieldClass['quoted field key']) // 2
+console.log(StaticPublicFieldClass[computedFieldKey]) // 3
+
+// Private slots are new and can be created via:
 
 
+// a) Instance private fields
+class InstPrivateClass {
+  #privateField1 = 'private field 1'; // (A)
+  #privateField2; // (B) required!
+
+  constructor(value) {
+    this.#privateField2 = value; // (C)
+  }
+
+  // Private fields are not accessible outside the class body.
+  checkPrivateValues() {
+    console.log(this.#privateField1); // 'private field 1'
+    console.log(this.#privateField2); // 'constructor argument'
+  }
+}
+
+const privObj = new InstPrivateClass('constructor argument');
+privObj.checkPrivateValues();
+console.log(privObj) // {}
+console.log("priv", Object.keys(privObj).length === 0) // priv, true
+
+
+// b) Instance and static private fields
+class InstPrivateClass {
+  #privateField1 = 'private field 1'; // (A)
+  #privateField2; // (B) required!
+
+  static #staticPrivateField = 'hello';
+
+  constructor(value) {
+    this.#privateField2 = value; // (C)
+  }
+
+  // Private fields are not accessible outside the class body.
+  checkPrivateValues() {
+    console.log(this.#privateField1); // 'private field 1'
+    console.log(this.#privateField2); // 'constructor argument'
+  }
+
+  static #twice() {
+    return this.#staticPrivateField + " " + this.#staticPrivateField;
+  }
+
+  static getResultTwice() {
+    return this.#twice()
+  }
+}
+
+const inst = new InstPrivateClass('constructor argument');
+inst.checkPrivateValues();
+
+console.log("inst", Object.keys(inst).length === 0) // "inst", true
+console.log(InstPrivateClass.getResultTwice()); // hello hello
 
 
 
