@@ -34,7 +34,6 @@ console.log(matchObj.indices.groups); // { as: [ 0, 4 ], bs: [ 4, 6 ] }
 // -----------------------------------
 
 // 3. Object.hasOwn(obj, propKey)
-
 // It is a safe way to check that propKey is the own property of obj object.
 // It is similar to Object.prototype.hasOwnProperty but it supports all object types.
 const proto = {
@@ -50,4 +49,24 @@ console.log('protoProp' in obj); // true
 console.log(Object.hasOwn(obj, 'protoProp')) // false
 console.log(Object.hasOwn(proto, 'protoProp')); // true
 console.log(Object.hasOwn(proto, 'protoProp')) // true
+
+// -----------------------------------
+
+// 4. error.cause
+// Error and it's subclasses now let us specify the reason behind the error.
+// This is useful in deeply nested function where we have chained error blocks to quickly find the error.
+
+function readFiles(filePaths) {
+  return filePaths.map(
+    (filePath) => {
+      try {
+        // ···
+      } catch (error) {
+        throw new Error(
+          `While processing ${filePath}`,
+          {cause: error} // this is new
+        );
+      }
+  });
+}
 
