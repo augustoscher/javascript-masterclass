@@ -94,3 +94,31 @@ const resource = await Promise.any([
     .then(response => response.text()),
 ]);
 
+
+// 6. New members of classes
+// Public properties can be created via:
+
+// a) Instance public fields
+class InstPublicClass {
+  // Instance public field
+  instancePublicField = 0; // (A)
+
+  constructor(value) {
+    // We don’t need to mention .property elsewhere!
+    this.property = value; // (B)
+  }
+}
+
+const inst = new InstPublicClass('constrArg');
+inst.instancePublicField = 'xunda'
+console.log(inst) // { instancePublicField: 'xunda', property: 'constrArg' }
+
+
+
+
+
+
+
+
+
+
