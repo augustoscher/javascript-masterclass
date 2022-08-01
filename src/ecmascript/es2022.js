@@ -70,3 +70,27 @@ function readFiles(filePaths) {
   });
 }
 
+// -----------------------------------
+
+// 5. Top-level await modules
+// We can now use await at the top levels of modules and don’t have to enter async functions or methods anymore.
+
+// - Loading modules dynamically
+const messages = await import(`./messages-${language}.mjs`);
+
+// - Using a fallback if module loading fails
+let lodash;
+try {
+  lodash = await import('https://primary.example.com/lodash');
+} catch {
+  lodash = await import('https://secondary.example.com/lodash');
+}
+
+// - Using whichever resource loads fastest
+const resource = await Promise.any([
+  fetch('http://example.com/first.txt')
+    .then(response => response.text()),
+  fetch('http://example.com/second.txt')
+    .then(response => response.text()),
+]);
+
