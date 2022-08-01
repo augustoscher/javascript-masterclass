@@ -32,3 +32,22 @@ matchObj = /(?<as>a+)(?<bs>b+)/d.exec('aaaabb');
 console.log(matchObj.indices.groups); // { as: [ 0, 4 ], bs: [ 4, 6 ] }
 
 // -----------------------------------
+
+// 3. Object.hasOwn(obj, propKey)
+
+// It is a safe way to check that propKey is the own property of obj object.
+// It is similar to Object.prototype.hasOwnProperty but it supports all object types.
+const proto = {
+  protoProp: 'protoProp',
+};
+
+const obj = {
+  __proto__: proto,
+  objProp: 'objProp',
+};
+
+console.log('protoProp' in obj); // true
+console.log(Object.hasOwn(obj, 'protoProp')) // false
+console.log(Object.hasOwn(proto, 'protoProp')); // true
+console.log(Object.hasOwn(proto, 'protoProp')) // true
+
