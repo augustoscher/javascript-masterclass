@@ -184,7 +184,40 @@ console.log("inst", Object.keys(inst).length === 0) // "inst", true
 console.log(InstPrivateClass.getResultTwice()); // hello hello
 
 
+// c) Private methods and accessors
+class MyClass {
+  #privateMethod() {}
+
+  static check() {
+    const inst = new MyClass();
+
+    console.log(#privateMethod in inst) // true
+    console.log(#privateMethod in MyClass.prototype) // false
+    console.log(#privateMethod in MyClass) // false
+  }
+}
+
+MyClass.check();
 
 
+// d) Static initialisation blocks in classes. 
+// For static data we have Static fields and Static Blocks that are executed when the class is created.
+class Translator {
+  static translations = {
+    yes: 'ja',
+    no: 'nein',
+    maybe: 'vielleicht',
+  };
+  static englishWords = [];
+  static germanWords = [];
+  static { // (A)
+    for (const [english, german] of Object.entries(this.translations)) {
+      this.englishWords.push(english);
+      this.germanWords.push(german);
+    }
+  }
+}
 
+console.log(Translator.englishWords) // ["yes", "no", "maybe"]
+console.log(Translator.germanWords) // ["ja", "nein", "vielleicht"]
 
