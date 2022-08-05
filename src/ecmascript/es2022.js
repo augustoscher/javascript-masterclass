@@ -31,6 +31,14 @@ console.log(matchObj.indices); // [ [ 0, 6 ], [ 0, 4 ], [ 4, 6 ], groups: undefi
 matchObj = /(?<as>a+)(?<bs>b+)/d.exec('aaaabb');
 console.log(matchObj.indices.groups); // { as: [ 0, 4 ], bs: [ 4, 6 ] }
 
+
+const re = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/
+const match = re.exec('2022-08-04')
+
+console.log(match.groups) //[Object: null prototype] { year: '2022', month: '08', day: '04' }
+console.log(match.groups.year)
+console.log(match.groups.month)
+console.log(match.groups.day)
 // -----------------------------------
 
 // 3. Object.hasOwn(obj, propKey)
