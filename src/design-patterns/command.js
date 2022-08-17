@@ -12,3 +12,16 @@ class OrderManager {
     return command.execute(this.orders, ...args);
   }
 }
+
+class Command {
+  constructor(execute) {
+    this.execute = execute;
+  }
+}
+
+function placeOrderCommand(order, id) {
+  return new Command((orders) => {
+    orders.push(id);
+    return `You have successfully ordered ${order} (${id})`;
+  })
+}
