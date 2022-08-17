@@ -19,21 +19,21 @@ class Command {
   }
 }
 
-function placeOrderCommand(order, id) {
+const placeOrderCommand = (order, id) => {
   return new Command((orders) => {
     orders.push(id);
     return `You have successfully ordered ${order} (${id})`;
   })
 }
 
-function cancelOrderCommand(id) {
+const cancelOrderCommand = (id) => {
   return new Command((orders) => {
     orders = orders.filter(order => order.id !== id);
     return `You have canceled your order ${id}`;
   })
 }
 
-function cancelOrderCommand2(id) {
+function CancelOrderCommand2(id) {
   const execute = (orders) => {
     orders = orders.filter(order => order.id !== id);
     return `You have canceled your order ${id}`;
@@ -41,6 +41,12 @@ function cancelOrderCommand2(id) {
   return new Command(execute);
 }
 
-function TrackOrderCommand(id) {
+const trackOrderCommand = (id) => {
   return new Command(() => `Your order ${id} will arrive in 20 minutes.`);
 }
+
+const manager = new OrderManager();
+
+console.log(manager.execute(placeOrderCommand("Pad Thai", "1234")));
+console.log(manager.execute(trackOrderCommand("1234")));
+console.log(manager.execute(cancelOrderCommand("1234")));
