@@ -3,6 +3,14 @@
 // With the observer pattern, we can subscribe certain objects, the observers, to another object, called the observable.
 // Whenever an event occurs, the observable notifies all its observers!
 
+// PROS
+// Using the observer pattern is a great way to enforce separation of concerns and the single-responsiblity principle.
+// The observer objects aren’t tightly coupled to the observable object, and can be (de)coupled at any time. 
+// The observable object is responsible for monitoring the events, while the observers simply handle the received data.
+
+// CONS
+// If an observer becomes too complex, it may cause performance issues when notifying all subscribers.
+
 class Observable {
   constructor() {
     this.observers = [];
