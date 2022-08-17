@@ -19,34 +19,43 @@ class Command {
   }
 }
 
-const placeOrderCommand = (order, id) => {
+function PlaceOrderCommand(name, id) {
   return new Command((orders) => {
-    orders.push(id);
-    return `You have successfully ordered ${order} (${id})`;
+    orders.push({ id ,name });
+    return `You have successfully ordered ${name} (${id})`;
   })
 }
 
-const cancelOrderCommand = (id) => {
+function UpdateOrderStatusCommand(status, id) {
+  return new Command((orders) => {
+    orders = orders
+      .filter((order) => order.id === id)
+      .map((order) => ({ ...order, status }))
+      return `You have update order status to ${status}`;
+  })
+}
+
+function CancelOrderCommand(id) {
   return new Command((orders) => {
     orders = orders.filter(order => order.id !== id);
     return `You have canceled your order ${id}`;
   })
 }
 
-function CancelOrderCommand2(id) {
-  const execute = (orders) => {
-    orders = orders.filter(order => order.id !== id);
-    return `You have canceled your order ${id}`;
-  }
-  return new Command(execute);
-}
-
-const trackOrderCommand = (id) => {
+function TrackOrderCommand(id) {
   return new Command(() => `Your order ${id} will arrive in 20 minutes.`);
+}
+
+function GetOrdersCommand() {
+  return new Command((orders) => orders)
 }
 
 const manager = new OrderManager();
 
-console.log(manager.execute(placeOrderCommand("Pad Thai", "1234")));
-console.log(manager.execute(trackOrderCommand("1234")));
-console.log(manager.execute(cancelOrderCommand("1234")));
+console.log(manager.execute(new PlaceOrderCommand("Pad Thai", "1234")));
+console.log(manager.execute(new PlaceOrderCommand("Burrito", "12345")));
+console.log(manager.execute(new CancelOrderCommand("1234")));
+console.log(manager.execute(new GetOrdersCommand()));
+
+console.log(manager.execute(new UpdateOrderStatusCommand("Done", "12345")));
+console.log(manager.execute(new GetOrdersCommand()));
