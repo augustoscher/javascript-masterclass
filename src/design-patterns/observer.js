@@ -34,4 +34,9 @@ observable.subscribe(logger);
 observable.subscribe(sendEmail);
 
 observable.notify("Clicked on button A");
+console.log();
 observable.notify("Clicked on button B");
+console.log();
+
+observable.unsubscribe(logger);
+observable.notify("Clicked on button C");
