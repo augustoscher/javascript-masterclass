@@ -25,3 +25,11 @@ function placeOrderCommand(order, id) {
     return `You have successfully ordered ${order} (${id})`;
   })
 }
+
+function cancelOrderCommand(id) {
+  return new Command((orders) => {
+    orders = orders.filter(order => order.id !== id);
+    return `You have canceled your order ${id}`;
+  })
+}
+
