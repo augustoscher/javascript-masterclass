@@ -33,3 +33,14 @@ function cancelOrderCommand(id) {
   })
 }
 
+function cancelOrderCommand2(id) {
+  const execute = (orders) => {
+    orders = orders.filter(order => order.id !== id);
+    return `You have canceled your order ${id}`;
+  }
+  return new Command(execute);
+}
+
+function TrackOrderCommand(id) {
+  return new Command(() => `Your order ${id} will arrive in 20 minutes.`);
+}
