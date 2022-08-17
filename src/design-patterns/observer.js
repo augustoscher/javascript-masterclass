@@ -20,3 +20,18 @@ class Observable {
     this.observers.forEach(observer => observer(data));
   }
 }
+
+const logger = (data) => {
+  console.log("logging: ", data)
+}
+
+const sendEmail = (data) => {
+  console.log("sending email: ", data)
+}
+
+const observable = new Observable();
+observable.subscribe(logger);
+observable.subscribe(sendEmail);
+
+observable.notify("Clicked on button A");
+observable.notify("Clicked on button B");
