@@ -1,3 +1,5 @@
+// This is not a design pattern.
+// This is how to proxy a function. Intercept calls of a function.
 const getCitationText = ({ title, year, author }) => 
   `${title}. ${author}, ${year}.`
 
@@ -18,3 +20,5 @@ console.log(proxiedGetCitationText({
 // output
 // [getCitationText] was called with [[{"title":"Uma frase qualquer","author":"Ruiz, Simone","year":"2022"}]]
 // Uma frase qualquer. Ruiz, Simone, 2022.
+
+
