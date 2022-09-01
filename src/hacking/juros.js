@@ -22,4 +22,4 @@ const calculate = (taxaAnual, valorBase, meses, valorDepositoMes = 0) => {
   console.log(`Valor: ${valorBase}`)
 }
 
-calculate(2.66, 27000, 12, 4000)
+calculate(13, 10000, 36, 3000)
