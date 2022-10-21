@@ -91,3 +91,6 @@ removeDuplicates([31, 56, 12, 31, 45, 12, 31]); // [ 31, 56, 12, 45 ]
 // returns an random item from array
 const randomArrayItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 randomArrayItem(['lol', 'a', 2, 'foo', 52, 'Jhon', 'hello', 57]);
+
+// 16. generate a string with given length and char
+const generateString = ({ length, char }) => char.repeat(length) 
