@@ -93,4 +93,12 @@ const randomArrayItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 randomArrayItem(['lol', 'a', 2, 'foo', 52, 'Jhon', 'hello', 57]);
 
 // 16. generate a string with given length and char
-const generateString = ({ length, char }) => char.repeat(length) 
+const generateString = ({ length, char }) => char.repeat(length)
+
+// 17. Get URL params and generate object
+// https://www.jusbrasil.com.br/jurisprudencia/busca?q=responsabilidade+NOT(dano)+acidente&jurisType=ACORDAO
+// { q: 'responsabilidade NOT(dano) acidente', jurisType: 'ACORDAO' }
+const getURLParameters = (url) => {
+  const { searchParams } = new URL(url);
+  return Object.fromEntries(searchParams);
+};
