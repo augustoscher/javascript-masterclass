@@ -51,6 +51,12 @@ stripHtml('<h1>Hello <strong>World</strong>!!!</h1>'); // Hello World!!!
 const reverseStr = (str) => str.split("").reverse().join("")
 reverseStr('rehcs otsugua');
 
+// more performatic
+const str = "test"
+let reversedString = "";
+for (let i = str.length - 1; i >= 0; i--)
+  reversedString += str[i];
+
 
 // 9. shuffleArray
 // Shuffle array
