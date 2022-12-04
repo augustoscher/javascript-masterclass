@@ -96,3 +96,17 @@ const sumRandoAsyncNums = async () => {
 };
 
 sumRandoAsyncNums();
+
+
+// Transform all keys from object:
+const obj = {
+  'SC': true,
+  'RS': false,
+  'SP': true
+}
+
+const newObj = {
+  ...obj,
+  ...Object.fromEntries(Object.entries(obj).map((item) => [item[0], (item[1] = false)]))
+}
+console.log(newObj)
