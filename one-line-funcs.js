@@ -108,3 +108,6 @@ const getURLParameters = (url) => {
   const { searchParams } = new URL(url);
   return Object.fromEntries(searchParams);
 };
+
+const timeFromDate = (date) => date.toTimeString().slice(0, 8);
+timeFromDate(new Date(2021, 0, 10, 17, 30, 0)) //"17:30:00"
