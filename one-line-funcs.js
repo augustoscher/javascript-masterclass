@@ -109,5 +109,10 @@ const getURLParameters = (url) => {
   return Object.fromEntries(searchParams);
 };
 
+// 18. Get time from a date:
 const timeFromDate = (date) => date.toTimeString().slice(0, 8);
 timeFromDate(new Date(2021, 0, 10, 17, 30, 0)) //"17:30:00"
+
+// 19. Check if touch is supported
+const touchSupported = () => ('ontouchstart' in window || window.DocumentTouch && document instanceof window.DocumentTouch);
+console.log(touchSupported());
