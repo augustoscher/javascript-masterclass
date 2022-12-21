@@ -6,12 +6,6 @@ const allSectionsExperiments = [
     filter: ({ req }) => req.cookies.from_search_homepage === 'true',
   },
   {
-    experimentName: 'phrasal-terms-enabling',
-    controlKey: 'false',
-    experimentGroup: 'serp',
-    filter: () => true,
-  },
-  {
     experimentName: 'motion-enabled-on-general-search',
     controlKey: 'disabled',
     experimentGroup: 'serp',
