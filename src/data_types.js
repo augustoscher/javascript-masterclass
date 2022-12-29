@@ -23,7 +23,7 @@ let obj = {name: 'Linus Torvald'};
 console.log(typeof obj);
 
 //tipo de array é object 
-let ar = [1,3,4,5,67,78,234];
+let ar = [1, 3, 4, 5, 67, 78, 234];
 console.log(typeof ar);
 
 let re = /[a-zA-Z_$]/;
