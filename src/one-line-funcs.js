@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // One-Line usefull functions in js
 // Some refs: https://javascript.plainenglish.io/27-essential-one-line-javascript-functions-used-by-developers-daily-2cda9826700e
 
