@@ -1,0 +1,22 @@
+{
+  "name": "javascript-masterclass",
+  "version": "1.0.0",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 18"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "repository": "git@github.com:augustoscher/javascript-masterclass.git",
+  "author": "Augusto S. Scher <augusto@jusbrasil.com.br>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.1"
+  }
+}
