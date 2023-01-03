@@ -3,13 +3,13 @@ const allSectionsExperiments = [
     experimentName: 'homepage',
     controlKey: 'default',
     experimentGroup: 'serp',
-    filter: ({ req }) => req.cookies.from_search_homepage === 'true',
+    filter: ({ req }) => req.cookies.from_search_homepage === 'true'
   },
   {
     experimentName: 'motion-enabled-on-general-search',
     controlKey: 'disabled',
     experimentGroup: 'serp',
-    filter: () => true,
+    filter: () => true
   },
   {
     experimentName: 'didyoumean-tests',
@@ -18,10 +18,10 @@ const allSectionsExperiments = [
     filter: () => true,
     helperBuild: {
       name: 'isDidYouMeanEnabled',
-      check: (alternative) => alternative === 'enabled',
-    },
-  },
-];
+      check: (alternative) => alternative === 'enabled'
+    }
+  }
+]
 
 const experimentsPerSection = {
   general: [...allSectionsExperiments],
@@ -31,33 +31,39 @@ const experimentsPerSection = {
       experimentName: 'legis-topic-redirect',
       controlKey: 'no-redirect',
       experimentGroup: 'serp',
-      filter: ({ req }) => req.query.e === 'legis-redirect',
+      filter: ({ req }) => req.query.e === 'legis-redirect'
     },
-    ...allSectionsExperiments,
-  ],
-};
+    ...allSectionsExperiments
+  ]
+}
 
-const activeExperiments = Object.keys(experimentsPerSection).flatMap(
-  (section) => experimentsPerSection[section]
-).filter((experiment) => experiment.filter({ req: { cookies: {}, query: {} } }));
-
+const activeExperiments = Object.keys(experimentsPerSection)
+  .flatMap((section) => experimentsPerSection[section])
+  .filter((experiment) =>
+    experiment.filter({ req: { cookies: {}, query: {} } })
+  )
 
 const buildExperimentHelper = ({ experiment, alternative, participating }) => {
   return activeExperiments.reduce((activeHelpers, experimentKey) => {
-    const { experimentName, helperBuild = null } = experimentKey;
+    const { experimentName, helperBuild = null } = experimentKey
     if (helperBuild) {
       return {
         [helperBuild.name]:
-          participating && experimentName === experiment && helperBuild.check(alternative),
-        ...activeHelpers,
-      };
+          participating &&
+          experimentName === experiment &&
+          helperBuild.check(alternative),
+        ...activeHelpers
+      }
     }
-    return activeHelpers;
-  }, {});
-};
+    return activeHelpers
+  }, {})
+}
 
-const { experimentName, controlKey } = activeExperiments[0];
+const { experimentName, controlKey } = activeExperiments[0]
 
-const r = buildExperimentHelper({ experiment: experimentName, alternative: controlKey, participating: true })
+const r = buildExperimentHelper({
+  experiment: experimentName,
+  alternative: controlKey,
+  participating: true
+})
 console.log(r)
-
