@@ -39,17 +39,14 @@ const visits = [
 
 const today = new Date();
 
-const isToday = (date) => {
-  return (
-    date.getDate() == today.getDate() &&
-    date.getMonth() == today.getMonth() &&
-    date.getFullYear() == today.getFullYear()
-  );
-};
+const isToday = (date) => (
+  date.getDate() == today.getDate() &&
+  date.getMonth() == today.getMonth() &&
+  date.getFullYear() == today.getFullYear()
+);
 
-const todayVisits = visits.filter(({ date }) => {
-  return isToday(new Date(date));
-});
+const todayVisits = visits.filter(({ date }) => 
+  isToday(new Date(date)))
 
 console.log("all: ", visits.length);
 console.log("todayVisits: ", todayVisits.length);
