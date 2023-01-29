@@ -125,3 +125,6 @@ console.log(touchSupported())
 // 20. Find the min/max number in array
 console.log(Math.max(...[1, 3, 300, 4, 5, 10]))
 console.log(Math.min(...[1, 3, 300, 4, 5, 10]))
+
+// 21. Create a new array with a specified range of numbers
+Array.from({ length: 10 }, (_, i) => i)
