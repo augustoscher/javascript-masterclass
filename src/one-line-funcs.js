@@ -122,5 +122,6 @@ const touchSupported = () =>
   (window.DocumentTouch && document instanceof window.DocumentTouch)
 console.log(touchSupported())
 
-// 20. Find the greatest number in array
+// 20. Find the min/max number in array
 console.log(Math.max(...[1, 3, 300, 4, 5, 10]))
+console.log(Math.min(...[1, 3, 300, 4, 5, 10]))
