@@ -121,3 +121,6 @@ const touchSupported = () =>
   'ontouchstart' in window ||
   (window.DocumentTouch && document instanceof window.DocumentTouch)
 console.log(touchSupported())
+
+// 20. Find the greatest number in array
+console.log(Math.max(...[1, 3, 300, 4, 5, 10]))
