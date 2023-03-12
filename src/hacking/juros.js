@@ -1,4 +1,3 @@
-
 const calculate = (taxaAnual, valorBase, meses, valorDepositoMes = 0) => {
   const percentual = (taxaAnual / 12).toFixed(2)
 
@@ -7,7 +6,7 @@ const calculate = (taxaAnual, valorBase, meses, valorDepositoMes = 0) => {
   let totalDepositos = 0
   while (meses > 0) {
     valorBase += valorDepositoMes
-    const juros = (valorBase * percentual / 100)
+    const juros = (valorBase * percentual) / 100
     totalJuros += juros
     totalDepositos += valorDepositoMes
     valorBase = valorBase + juros
@@ -15,7 +14,7 @@ const calculate = (taxaAnual, valorBase, meses, valorDepositoMes = 0) => {
     meses -= 1
   }
 
-  console.log("----Totais----")
+  console.log('----Totais----')
   console.log(`Original: ${valorOriginal}`)
   console.log(`Depositos: ${totalDepositos}`)
   console.log(`Juros: ${totalJuros}`)
