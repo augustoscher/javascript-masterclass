@@ -1,3 +1,5 @@
+// https://mathiasbynens.be/notes/javascript-benchmarking
+
 var totalTime
 var start = new Date()
 var iterations = 50
