@@ -13,8 +13,7 @@
 //nav - sp
 
 const findDepartureArrival = (tickets) => {
-  console.time('ObjectSolution')
-
+  console.time('with object')
   const hashMap = {}
 
   for (let tkt in tickets) {
@@ -28,16 +27,26 @@ const findDepartureArrival = (tickets) => {
     else hashMap[arrival] = hashMap[arrival] + 1
   }
 
-  console.log(hashMap)
-  console.timeEnd('ObjectSolution')
+  const arr = Object.keys(hashMap).map((city) => ({
+    city,
+    value: hashMap[city]
+  }))
+
+  const res = arr.reduce((acc, { city, value }) => {
+    if (value === -1) acc.departure = city
+    if (value === 1) acc.arrival = city
+    return acc
+  }, {})
+
+  console.timeEnd('with object')
+  return res
 }
 
-const findArrivalWithMap = (tickets) => {
-  console.time('MapSolution')
-
+const findDepartureArrivalWithMap = (tickets) => {
+  console.time('with map')
   const m = new Map()
 
-  for (let tkt in tickets) {
+  for (const tkt in tickets) {
     const depart = tickets[tkt].departure
     const arrival = tickets[tkt].arrival
 
@@ -50,8 +59,14 @@ const findArrivalWithMap = (tickets) => {
     else m.set(arrival, 1)
   }
 
-  console.log(m)
-  console.timeEnd('MapSolution')
+  const res = Array.from(m.entries()).reduce((acc, [city, value]) => {
+    if (value === -1) acc.departure = city
+    if (value === 1) acc.arrival = city
+    return acc
+  }, {})
+
+  console.timeEnd('with map')
+  return res
 }
 
 // LA -> MALI
@@ -78,5 +93,5 @@ const ticketsMap = {
   }
 }
 
-findDepartureArrival(ticketsMap)
-findArrivalWithMap(ticketsMap) //better, more performatic
+console.log(findDepartureArrival(ticketsMap))
+console.log(findDepartureArrivalWithMap(ticketsMap)) //better, more performatic
