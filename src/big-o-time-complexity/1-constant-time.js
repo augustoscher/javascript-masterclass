@@ -15,5 +15,7 @@ const removeLastElements = (array, elements = 1) => {
   while (elements > 0) {
     array.pop()
   }
-} //This will also have a constant time look-up since the function
+}
+
+//This will also have a constant time look-up since the function
 //is only looking at a specific reference point within the array.
