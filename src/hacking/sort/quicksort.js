@@ -1,3 +1,33 @@
+// https://www.freecodecamp.org/news/how-to-write-quick-sort-algorithm-with-javascript/
+
+function quickSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  let pivot = arr[0];
+  let leftArr = [];
+  let rightArr = [];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < pivot) {
+      leftArr.push(arr[i]);
+    } else {
+      rightArr.push(arr[i]);
+    }
+  }
+
+  return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
+}
+
+console.time('quickSort');
+console.log(quickSort([3, 7, 4, 9, 5, 2, 6, 1]));
+console.timeEnd('quickSort');
+
+console.time('sort'); //better
+console.log([3, 7, 4, 9, 5, 2, 6, 1].sort());
+console.timeEnd('sort');
+
 
 function quickSortF(arr) {
   // Base case
@@ -22,8 +52,7 @@ function quickSortF(arr) {
      // until we hit the if condition which returns an empty
      // array. These results are all connected using concat,
      // and we get our sorted array.
-     return quickSortF(left).concat(head, quickSortF(right))           
-
+     return quickSortF(left).concat(head, quickSortF(right))
 }
 
 const q7 = quickSortF([11,8,14,3,6,2,7]) 
