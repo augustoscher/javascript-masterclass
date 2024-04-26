@@ -9,6 +9,7 @@ function sum(a, b) {
     }, 1000);
   });
 }
+
 //evitar foreach quando tiver async/await
 (async function () {
   try {
