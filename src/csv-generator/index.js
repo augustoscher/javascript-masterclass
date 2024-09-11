@@ -1,41 +1,27 @@
-const Faker = require("faker");
+const { faker } = require('@faker-js/faker');
 const createCsvWriter = require("csv-writer").createObjectCsvWriter;
 
 const generateEmailAndLastname = size => {
   const data = [];
   for (let i = 0; i < size; i++) {
     data.push({
-      email: `${Faker.internet.exampleEmail()}`,
-      lastname: `${Faker.name.lastName()}`
+      pid: faker.number.bigInt(),
+      email: faker.internet.exampleEmail(),
+      name: faker.person.firstName()
     });
   }
 
   const csvWriter = createCsvWriter({
     path: "leads.csv",
     header: [
+      {id: 'pid', title: 'pid'},
       {id: 'email', title: 'email'},
-      {id: 'lastname', title: 'lastname'},
+      {id: 'name', title: 'name'},
     ]
   });
 
   generateFile(csvWriter, data);
 }
-
-const generateEmail = (size) => {
-  const data = [];
-  for (let i = 0; i < size; i++) {
-    data.push({
-      email: `${Faker.internet.exampleEmail()}`
-    });
-  }
-
-  const csvWriter = createCsvWriter({
-    path: "leads_greater_than_25K.csv",
-    header: [{ id: "email", title: "Email" }],
-  });
-
-  generateFile(csvWriter, data);  
-};
 
 const generateFile = (writer, data) => {
   writer
@@ -44,8 +30,7 @@ const generateFile = (writer, data) => {
 }
 
 const main = () => {
-  // generateEmail(25_000);
-  generateEmailAndLastname(100)
+  generateEmailAndLastname(500_000)
 };
 
 main();

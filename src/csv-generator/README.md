@@ -20,5 +20,11 @@ Run:
 node index.js
 ```
 
+or
+
+```bash
+yarn dev
+```
+
 It would generate csv file with email;lastname structure.
 You can also edit script and create your own file.
