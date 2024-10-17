@@ -1,0 +1,12 @@
+{
+  "name": "mail-list",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.3"
+  }
+}
